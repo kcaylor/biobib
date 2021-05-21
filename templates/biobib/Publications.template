@@ -6,7 +6,7 @@
 \hline 
 \endhead 
 \BLOCK{for publication in items}
-\BLOCK{if publication['New'] != 'Y'}
+\BLOCK{if publication['New?'] != 'Y'}
     \VAR{publication|make_row}
 \BLOCK{endif}
 \BLOCK{endfor}
@@ -14,7 +14,7 @@
 \\hline
    &   & {\bf Since Appointment:} &    &   \\\\
 \BLOCK{for publication in items}
-\BLOCK{if publication['New'] == 'Y'}
+\BLOCK{if publication['New?'] == 'Y'}
     \VAR{publication|make_row}
 \BLOCK{endif}
 \BLOCK{endfor}
