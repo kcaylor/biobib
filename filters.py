@@ -7,6 +7,8 @@ Categories = {
     'CP': 'Refereed Conference Proceedings'
 }
 
+def author_format(text):
+    return text
 
 def make_cell(text, size=''):
     """
