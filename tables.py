@@ -18,6 +18,12 @@ latex_env = Environment(
     loader=FileSystemLoader('templates'))
 
 
+def to_int(value):
+    try:
+        v = str(int(value))
+    except:
+        v = ""
+    return v
 
 def make_cell(text, size=''):
     """
@@ -283,7 +289,7 @@ class Publications(Table):
     def make_article(self, this_row):
         row = ""
         row += "{code} & {year} & {{\\bf {title}}}, {authors}. {href} & \\emph{{ {publisher} }} {volume}{pages}. {doi}  & {category}".format(  # NOQA
-            code=tex_escape(this_row['NUM']),
+            code=tex_escape(to_int(this_row['NUM'])),
             year=tex_escape(str(this_row['YEAR'])),
             title=tex_escape(this_row['TITLE']),
             authors=tex_escape(this_row['authors']),
@@ -306,7 +312,7 @@ class Publications(Table):
     def make_chapter(self, this_row):
         row = ""
         row += "{code} & {year} & {{\\bf {title}}}, {authors} & {editors} \\emph{{ {book} }}. {publisher} & {category}".format(  # NOQA
-            code=tex_escape(this_row['NUM']),
+            code=tex_escape(to_int(this_row['NUM'])),
             year=tex_escape(str(this_row['YEAR'])),
             title=tex_escape(this_row['TITLE']),
             authors=tex_escape(this_row['authors']),
