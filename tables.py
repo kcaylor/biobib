@@ -362,7 +362,7 @@ class Courses(Table):
 
     def clean_df(self):
         df = self.df
-        # Step 1: drop any service from before this eval period
+        # Step 1: drop any courses from before this eval period
         df = self.clean_cumulative(df)
         df = df.sort_values(['Year', 'Q', 'Title'], ascending=[True, True, True])  # NOQA
         return df
@@ -375,6 +375,9 @@ class MESM(Table):
             name=name, csv_file=csv_file, template_file=template_file)
         self.cumulative = cumulative
         self.df = self.clean_df()
+
+    def clean_df(self):
+       return self.clean_cumulative(self.df)
 
 class Undergrads(Table):
 
