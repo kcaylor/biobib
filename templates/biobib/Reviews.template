@@ -6,7 +6,7 @@ Year & Activity & Journal/Agency\\
 \hline 
 \endhead 
 \BLOCK{for review in items}
-\VAR{review.Year|tex_escape} & \VAR{review.Role|tex_escape} & \VAR{review['Journal or Agency']|tex_escape} \BLOCK{if review.count > 1} (\VAR{review.count|tex_escape}) \BLOCK{endif} \\
+\VAR{review.Year|tex_escape} & \VAR{review.Role|tex_escape} & \VAR{review['Journal or Agency']|tex_escape} \BLOCK{if review.Count > 1} (\VAR{review.Count|tex_escape}) \BLOCK{endif} \\
 \BLOCK{endfor}
 \end{longtable}
 

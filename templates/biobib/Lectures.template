@@ -6,7 +6,7 @@ Month/Year & Title & Meeting/Place\\
 \hline 
 \endhead 
 \BLOCK{for lecture in items}
-\VAR{lecture.Month}/\VAR{lecture.Year} & \VAR{lecture.Topic|tex_escape}, \VAR{lecture.Place|tex_escape} \\
+\VAR{lecture.Month}/\VAR{lecture.Year} & \VAR{lecture.Role|tex_escape}, \VAR{lecture.Topic|tex_escape} & \VAR{lecture.Place|tex_escape} \\
 \BLOCK{endfor}
 \end{longtable}
 

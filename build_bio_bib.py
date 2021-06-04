@@ -43,14 +43,20 @@ from tables import GraduateAdvising  # NOQA
 graduate_ms_file = 'CV/Graduate MA MS-Table.csv'
 GraduateAdvising(csv_file=graduate_ms_file,
                  name='GraduateAdvisingMS').write_template(path=path)
+
 graduate_phd_file = 'CV/Graduate PhD-Table.csv'
-GraduateAdvising(csv_file=graduate_ms_file,
-                 name='GraduateAdvisingMS').write_template(path=path)
+GraduateAdvising(csv_file=graduate_phd_file,
+                 name='GraduateAdvisingPhD').write_template(path=path)
 
 from tables import PostdoctoralAdvising  # NOQA
 postdoctoral_file = 'CV/Postdoc-Table.csv'
 PostdoctoralAdvising(csv_file=postdoctoral_file,
                      name='PostdoctoralAdvising').write_template(path=path)
+
+from tables import UndergradAdvising # NOQA
+undergrad_file = 'CV/Undergrad-Table.csv'
+UndergradAdvising(csv_file=undergrad_file,
+                  name='UndergradAdvising').write_template(path=path)
 
 ###############################################################################
 #

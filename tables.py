@@ -17,6 +17,8 @@ latex_env = Environment(
     autoescape=False,
     loader=FileSystemLoader('templates'))
 
+max_author = 30
+author_cols = ['A' + str(i+1) for i in range(max_author)]
 
 def to_int(value):
     try:
@@ -77,6 +79,9 @@ def str_join(df, sep, *cols):
                   [df[col] for col in cols])
 
 
+def stringify(value):
+    return str(value)
+
 def colonify(string):
     if string:
         return ": " + string
@@ -87,6 +92,7 @@ latex_env.filters['colonify'] = colonify
 latex_env.filters['str_join'] = str_join
 latex_env.filters['tex_escape'] = tex_escape
 latex_env.filters['make_cell'] = make_cell
+latex_env.filters['stringify'] = stringify
 
 
 class Table:
@@ -235,7 +241,7 @@ class Publications(Table):
         # Step 2: Concatenate authors into a single list, making sure to drop
         # empty author columns
         df['authors'] = list(
-            pd.Series(df[['A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A7', 'A8', 'A9', 'A10', 'A11', 'A12', 'A13']]  # NOQA
+            pd.Series(df[author_cols]  # NOQA
                       .fillna('').values.tolist())
             .apply(lambda x: [i for i in x if i != ''])
             .apply(lambda x: ', '.join(x))
@@ -379,13 +385,17 @@ class MESM(Table):
     def clean_df(self):
        return self.clean_cumulative(self.df)
 
-class Undergrads(Table):
+class UndergradAdvising(Table):
 
-    def __init__(self, name='Undergradautes', csv_file=None, cumulative=False):
-        super(Undergrads, self).__init__(
+    def __init__(self, name='Undergradautes', csv_file=None, cumulative=False,
+            template_file='biobib/UndergradAdvising.template'):
+        super(UndergradAdvising, self).__init__(
             name=name, csv_file=csv_file, template_file=template_file)
         self.cumulative = cumulative
         self.df = self.clean_df()
+    
+    def clean_df(self):
+       return self.clean_cumulative(self.df)
 
 
 class Visitors(Table):
@@ -518,8 +528,7 @@ class Reviews(Table):
         df = self.clean_cumulative(df)
         df = df.sort_values(by=['Year', 'Role'], ascending=[True, False])
         df = (df.groupby(['Year', 'Role', 'Journal or Agency'])
-              .size()
-              .to_frame(name='count')
+              .sum('Count')
               .reset_index()
               )
         return df

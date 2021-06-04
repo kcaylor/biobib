@@ -1,0 +1,12 @@
+% UC Bio-bib Catalog UndergradAdvising Table
+% Created on 2019-02-20 10:20
+
+\begin{longtable}{lp{6.5cm} p{4.5cm}p{2cm}p{4cm}}
+Student & Project & Role & Year \\
+\hline 
+\endhead 
+\BLOCK{for student in items}
+\VAR{student.Student|tex_escape} & \VAR{student.Project|tex_escape} & \VAR{student.Role|tex_escape} & \VAR{student.Year|tex_escape} \\
+\BLOCK{endfor}
+\end{longtable}
+

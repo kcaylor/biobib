@@ -12,7 +12,7 @@
 \BLOCK{endfor}
 \\\hline
 \\\hline
-   &   & {\bf Since Appointment:} &    &   \\\\
+   &   & {\bf Since Prior Review:} &    &   \\\\
 \BLOCK{for publication in items}
 \BLOCK{if publication['New?'] == 'Y'}
     \VAR{publication|make_row}
