@@ -1,12 +1,12 @@
 % UC Bio-bib Catalog Courses Table
 % Created on \VAR{created}
 
-\begin{longtable}{lp{6.5cm}p{1cm}rrrp{2cm}}
+\begin{longtable}{lp{7cm}p{0.75cm}rrrp{2.5cm}}
 Qtr & Course & Class Type & Units & Hrs/Wk & Enrollment & ESCI/Written Evals Avail.\\
 \hline 
 \endhead 
 \BLOCK{ for course in courses }
-\VAR{course.QYR} & \VAR{course.Title} & \VAR{course['Class Type']} & \VAR{course.Units|tex_escape} & \VAR{course['Hours per Week']} & \VAR{ course.Enrollment} & \VAR{course.ESCI}/\VAR{course.Evals} \\ 
+\VAR{course.QYR} & \VAR{course.Course}, \VAR{course.Title} & \VAR{course['Class Type']} & \VAR{course.Units|tex_escape} & \VAR{course['Hours per Week']} & \VAR{ course.Enrollment} & \VAR{course.ESCI}/\VAR{course.Evals} \BLOCK{if course.Evals} \VAR{course['ESCI Link']|href} \BLOCK{endif} \\ 
 \BLOCK{ endfor } 
 \end{longtable}
 

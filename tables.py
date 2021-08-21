@@ -24,7 +24,7 @@ def to_int(value):
     try:
         v = str(int(value))
     except:
-        v = ""
+        v = value
     return v
 
 def make_cell(text, size=''):
@@ -137,6 +137,12 @@ class Table:
 
         with open(file, "w") as f:
             print(content, file=f)
+    
+    def href(self, this_href):
+        if this_href is np.NaN:
+            return ""
+        else:
+            return "\\href{{{href}}}{{[link]}}".format(href=this_href)
 
 
 class Service(Table):
@@ -294,7 +300,7 @@ class Publications(Table):
 
     def make_article(self, this_row):
         row = ""
-        row += "{code} & {year} & {{\\bf {title}}}, {authors}. {href} & \\emph{{ {publisher} }} {volume}{pages}. {doi}  & {category}".format(  # NOQA
+        row += "{code} & {year} & {{\\bf {title}}}, {authors} {href} & \\emph{{ {publisher} }} {volume}{pages}. {doi}  & {category}".format(  # NOQA
             code=tex_escape(to_int(this_row['NUM'])),
             year=tex_escape(str(this_row['YEAR'])),
             title=tex_escape(this_row['TITLE']),
@@ -354,8 +360,12 @@ class Courses(Table):
 
     def __init__(self, name='Courses', csv_file=None, cumulative=False,
             template_file='biobib/Courses.template'):
+        self.filters = {
+            'href': self.href
+        }
         super(Courses, self).__init__(
-            name=name, csv_file=csv_file, template_file=template_file)
+            name=name, csv_file=csv_file, template_file=template_file,\
+            filters=self.filters)
         self.cumulative = cumulative
         self.df = self.clean_df()
         
@@ -428,9 +438,12 @@ class GraduateAdvising(Table):
 class PostdoctoralAdvising(Table):
 
     def __init__(self, name='PostdoctoralAdvising', csv_file=None, cumulative=False,  # NOQA
-            template_file='biobib/PostdoctoralAdvising.template'): 
+            template_file='biobib/PostdoctoralAdvising.template'):
+        self.filters = {
+            'make_years': self.make_years
+        }
         super(PostdoctoralAdvising, self).__init__(
-            name=name, csv_file=csv_file, template_file=template_file)
+            name=name, csv_file=csv_file, template_file=template_file, filters=self.filters)
         self.cumulative = cumulative
         self.df = self.clean_df()
 
@@ -439,7 +452,17 @@ class PostdoctoralAdvising(Table):
         # Step 1: drop any advising work from prior evaluation
         df = self.clean_cumulative(df)
         return df
-
+    
+    def make_years(self, row):
+        if pd.isnull(row['End Year']):
+            return "{start} - ".format(
+                start=int(row['Start Year']))
+        else:
+            return "{start}-{end}".format(
+                start=int(row['Start Year']),
+                end=int(row['End Year']))
+        
+        
 
 class Lectures(Table):
 
@@ -489,13 +512,28 @@ class Funding(Table):
         self.cumulative = cumulative
         self.df = self.clean_df()
         
+    def total(self, new=False):
+        if new:
+            funds = self.df[self.df['Type'] == 'New']
+        else:
+            funds = self.df
+    
+        return {
+            'Total Amount': '${:,.0f}'.format(
+                funds['Total Amount'].replace('[\$,]', '', regex=True).astype(float).sum()),
+            'Total to UCSB': '${:,.0f}'.format(
+                funds['Total to UCSB'].replace('[\$,]', '', regex=True).astype(float).sum()),
+            'Total Personal Share': '${:,.0f}'.format(
+                funds['Personal Share'].replace('[\$,]', '', regex=True).astype(float).sum())
+        }
+
     def clean_df(self):
         df = self.df
         df = self.clean_cumulative(df)
         # Replace NaN with a 'nan' string for checking later
         df['Start Date'].fillna('nan', inplace=True)
         df['End Date'].fillna('nan', inplace=True)
-        df = df.sort_values(by=['Start Year', 'Amount'],
+        df = df.sort_values(by=['Start Year', 'Total Amount'],
                             ascending=[True, False])
         return df
 
@@ -508,6 +546,16 @@ class Funding(Table):
             return "{start}-{end}".format(
                 start=row['Start Year'],
                 end=row['End Year'])
+    
+    def render_template(self):
+        rendered_tex = self.template.render(
+            created=time.strftime("%Y-%m-%d %H:%M"),
+            items=list(self.df.to_dict('records')),
+            total=self.total(new=False),
+            total_new=self.total(new=True)
+        )
+        return rendered_tex
+
 
 
 class Reviews(Table):

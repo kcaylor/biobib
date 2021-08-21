@@ -1,12 +1,15 @@
 % UC Bio-bib Funding Table
 % Created on \VAR{created}
 
-\begin{longtable}{p{1.75cm}>{\raggedright}p{2.75cm}p{5.5cm}p{1cm}p{1.25cm}p{1.25cm}p{1cm}}
-Year & Source & Title & Role & Amount & Personal Share & New/Cont.\\
+\begin{longtable}{p{1.75cm}>{\raggedright}p{2.5cm}p{5.5cm}|p{1.25cm}p{1.25cm}p{1.25cm}|p{0.75cm}p{0.75cm}}
+Years & Agency/Source & Title & Total Amount & Total to UCSB & Personal Share & Role & New/Cont.\\
 \hline 
 \endhead 
 \BLOCK{for grant in items}
-\VAR{grant|make_years} & \VAR{grant.Source|tex_escape} & \VAR{grant.Title|tex_escape} & \VAR{grant.Role|tex_escape} \BLOCK{if grant['Pooled Fund']} (Pooled) \BLOCK{endif} & \VAR{grant.Amount|tex_escape} & \VAR{grant['Personal Share']|tex_escape} & \VAR{grant.Type|tex_escape} \\ 
+\VAR{grant|make_years} & \VAR{grant.Source|tex_escape} & \VAR{grant.Title|tex_escape} & \VAR{grant['Total Amount']|tex_escape} & \VAR{grant['Total to UCSB']|tex_escape} & \BLOCK{if grant['Pooled Funds']} Pooled \BLOCK{else} \VAR{grant['Personal Share']|tex_escape} \BLOCK{endif} & \VAR{grant.Role|tex_escape}  & \VAR{grant.Type|tex_escape} \\ 
 \BLOCK{endfor}
+& & \multicolumn{1}{r} {\bf Total New :} & \VAR{total_new['Total Amount']|tex_escape} & \VAR{total_new['Total to UCSB']|tex_escape} & \VAR{total_new['Total Personal Share']|tex_escape} & & \\
+& & \multicolumn{1}{r} {\bf Total :} & \VAR{total['Total Amount']|tex_escape} & \VAR{total['Total to UCSB']|tex_escape} & \VAR{total['Total Personal Share']|tex_escape} & & \\
+
 \end{longtable}
 
