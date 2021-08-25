@@ -34,9 +34,13 @@ Once the data are formatted properly, they are written out to `.tex` files, that
 
 2. While I tired to make the `tables.py` structure general and extensible, it's not really well factored, so there is a fair amount of repetition related to cleaning up dataframes and formating of table output.
 
-3. This effort was inspired by Stuart Sweeney's similar system for generating biobib files using R scripts. 
+3. As of 2021, the biobib includes tables for `Special Appointments` and `Other Professional Activities`.
 
-4. Pull requests welcome. 
+4. As of 2021, there is a revised format for external funding that calculates total funding during the review period as well as new funding during the review period.
+
+5. This effort was originally inspired by Stuart Sweeney's similar system for generating biobib files using R scripts. 
+
+6. Pull requests welcome. 
 
 
 
