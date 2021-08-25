@@ -558,6 +558,36 @@ class Funding(Table):
 
 
 
+class OtherProfessionalActivities(Table):
+    def __init__(self, name='OtherProfessionalActivities', csv_file=None, cumulative=False,
+            template_file='biobib/OtherProfessionalActivities.template'):
+        super(OtherProfessionalActivities, self).__init__(
+            name=name, csv_file=csv_file,
+            template_file=template_file)
+        self.cumulative = cumulative
+        self.df = self.clean_df()
+    
+    def clean_df(self):
+        df = self.df
+        df = self.clean_cumulative(df)
+        df = df.sort_values(by=['Year', 'Role'], ascending=[True, False])
+        return df
+
+class SpecialAppointments(Table):
+    def __init__(self, name='SpecialAppointments', csv_file=None, cumulative=False,
+            template_file='biobib/SpecialAppointments.template'):
+        super(SpecialAppointments, self).__init__(
+            name=name, csv_file=csv_file,
+            template_file=template_file)
+        self.cumulative = cumulative
+        self.df = self.clean_df()
+    
+    def clean_df(self):
+        df = self.df
+        df = self.clean_cumulative(df)
+        df = df.sort_values(by=['Year', 'Role'], ascending=[True, False])
+        return df
+
 class Reviews(Table):
 
     def __init__(self, name='Reviews', csv_file=None, cumulative=False,

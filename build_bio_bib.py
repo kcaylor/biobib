@@ -84,9 +84,19 @@ Funding(csv_file=funding_file, name='Funding').write_template(path=path)
 
 ###############################################################################
 #
-# SERVICE ACTIVITIES
+# SERVICE & PROFESSIONAL ACTIVITIES
 #
 ###############################################################################
+
+from tables import SpecialAppointments  # NOQA
+appointments_file = 'CV/Special Appointments-Table.csv'
+SpecialAppointments(
+        csv_file=appointments_file, name='SpecialAppointments').write_template(path=path)
+
+from tables import OtherProfessionalActivities  # NOQA
+activities_file = 'CV/Additional Professional Activities-Table.csv'
+OtherProfessionalActivities(
+        csv_file=activities_file, name='OtherProfessionalActivities').write_template(path=path)
 
 from tables import Reviews  # NOQA
 reviews_file = 'CV/Reviews-Table.csv'

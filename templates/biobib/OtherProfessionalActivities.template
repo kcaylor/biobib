@@ -1,0 +1,11 @@
+% UC Bio-bib Other Professional Activities Table
+% Created on \VAR{created}
+
+\begin{longtable}{llp{12cm}}
+Year & Role & Organization\\
+\hline 
+\endhead 
+\BLOCK{for activity in items}
+\VAR{activity.Year|tex_escape} & \VAR{activity.Role|tex_escape} & \VAR{activity.Organization|tex_escape} \\
+\BLOCK{endfor}
+\end{longtable}

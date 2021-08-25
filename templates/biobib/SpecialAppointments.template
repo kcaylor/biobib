@@ -1,0 +1,11 @@
+% UC Bio-bib Special Appointments Table
+% Created on \VAR{created}
+
+\begin{longtable}{llp{12cm}}
+Year & Role & Organization\\
+\hline 
+\endhead 
+\BLOCK{for service in items}
+\VAR{service.Year|tex_escape} & \VAR{service.Role|tex_escape} & \VAR{service.Organization|tex_escape} \\
+\BLOCK{endfor}
+\end{longtable}
