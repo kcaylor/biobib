@@ -1,11 +1,27 @@
 % UC Bio-bib Catalog Courses Table
 % Created on \VAR{created}
 
-\begin{longtable}{lp{7cm}p{0.75cm}rrrp{2.5cm}}
+\begin{longtable}{p{1cm}p{7cm}p{0.75cm}rrrp{2.5cm}}
 Qtr & Course & Class Type & Units & Hrs/Wk & Enrollment & ESCI/Written Evals Avail.\\
 \hline 
-\endhead 
-\BLOCK{ for course in courses }
+\endfirsthead
+
+\multicolumn{7}{c}%
+{{\VAR{table_name} - continued from previous page }} \\ \\
+Qtr & Course & Class Type & Units & Hrs/Wk & Enrollment & ESCI/Written Evals Avail.\\
+\hline 
+\endhead
+
+\\
+\multicolumn{7}{c}%
+{{ \VAR{table_name} continued on next page }} \\
+\endfoot
+
+\hline \hline
+\endlastfoot
+
+
+\BLOCK{ for course in items }
 \VAR{course.QYR} & \VAR{course.Course}, \VAR{course.Title} & \VAR{course['Class Type']} & \VAR{course.Units|tex_escape} & \VAR{course['Hours per Week']} & \VAR{ course.Enrollment} & \VAR{course.ESCI}/\VAR{course.Evals} \BLOCK{if course.Evals} \VAR{course['ESCI Link']|href} \BLOCK{endif} \\ 
 \BLOCK{ endfor } 
 \end{longtable}

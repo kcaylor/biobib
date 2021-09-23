@@ -4,7 +4,22 @@
 \begin{longtable}{llp{12cm}}
 Year & Activity & Journal/Agency\\
 \hline 
-\endhead 
+\endfirsthead
+
+
+\multicolumn{3}{c}%
+{{\VAR{table_name} - continued from previous page }} \\ \\
+Year & Activity & Journal/Agency\\
+\hline 
+\endhead
+
+\\
+\multicolumn{3}{c}%
+{{ \VAR{table_name} continued on next page }} \\
+\endfoot
+
+\hline \hline
+\endlastfoot
 \BLOCK{for review in items}
 \VAR{review.Year|tex_escape} & \VAR{review.Role|tex_escape} & \VAR{review['Journal or Agency']|tex_escape} \BLOCK{if review.Count > 1} (\VAR{review.Count|tex_escape}) \BLOCK{endif} \\
 \BLOCK{endfor}

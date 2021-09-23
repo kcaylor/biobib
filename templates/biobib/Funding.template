@@ -1,10 +1,25 @@
 % UC Bio-bib Funding Table
 % Created on \VAR{created}
 
-\begin{longtable}{p{1.75cm}>{\raggedright}p{2.5cm}p{5.5cm}|p{1.25cm}p{1.25cm}p{1.25cm}|p{0.75cm}p{0.75cm}}
+\begin{longtable}{p{1.75cm}>{\raggedright}p{2.cm}p{5cm}|p{1.25cm}p{1.25cm}p{1.25cm}|p{0.75cm}p{0.75cm}}
 Years & Agency/Source & Title & Total Amount & Total to UCSB & Personal Share & Role & New/Cont.\\
 \hline 
-\endhead 
+\endfirsthead
+
+\multicolumn{8}{c}%
+{{\VAR{table_name} - continued from previous page }} \\ \\
+Years & Agency/Source & Title & Total Amount & Total to UCSB & Personal Share & Role & New/Cont.\\
+\hline 
+\endhead
+
+\\
+\multicolumn{8}{c}%
+{{ \VAR{table_name} continued on next page }} \\
+\endfoot
+
+\hline \hline
+\endlastfoot
+
 \BLOCK{for grant in items}
 \VAR{grant|make_years} & \VAR{grant.Source|tex_escape} & \VAR{grant.Title|tex_escape} & \VAR{grant['Total Amount']|tex_escape} & \VAR{grant['Total to UCSB']|tex_escape} & \BLOCK{if grant['Pooled Funds']} Pooled \BLOCK{else} \VAR{grant['Personal Share']|tex_escape} \BLOCK{endif} & \VAR{grant.Role|tex_escape}  & \VAR{grant.Type|tex_escape} \\ 
 \BLOCK{endfor}

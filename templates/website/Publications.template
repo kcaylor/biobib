@@ -1,0 +1,32 @@
+---
+author: {@pub.author@}
+date: {@date@}
+id: {@pub.ID@}
+year: {@pub.YEAR@}
+title: {@pub.TITLE@}
+doi: {@pub.DOI@}
+excerpt: {@pub.excerpt@}
+header:
+   teaser: {@pub.teaser_image@}
+portfolio-item-category:
+   - publications
+portfolio-item-tag:
+{% for tag in pub.tag_list %}
+    - {@tag@}
+{% endfor %}
+author-tags:
+{% for author in pub.author_list %}
+   - {@author@}
+{% endfor %}
+---
+
+![first page]( {{"{@teaser_image@}" | absolute_url}} ){:class="img-responsive" width="50%" .align-right}
+
+
+> {@citation@}
+
+
+**Abstract**:{@abstract@}
+
+
+[Go to the Article]({@url@}){: .btn .btn--success}

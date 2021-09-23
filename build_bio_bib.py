@@ -42,10 +42,12 @@ MESM(csv_file=project_file, name='MESMProjects').write_template(path=path)
 from tables import GraduateAdvising  # NOQA
 graduate_ms_file = 'CV/Graduate MA MS-Table.csv'
 GraduateAdvising(csv_file=graduate_ms_file,
+                 table_name='Graduate Degree Committees, MA/MS Committees',
                  name='GraduateAdvisingMS').write_template(path=path)
 
 graduate_phd_file = 'CV/Graduate PhD-Table.csv'
 GraduateAdvising(csv_file=graduate_phd_file,
+                 table_name='Graduate Degree Committees, Ph.D. Committees',
                  name='GraduateAdvisingPhD').write_template(path=path)
 
 from tables import PostdoctoralAdvising  # NOQA

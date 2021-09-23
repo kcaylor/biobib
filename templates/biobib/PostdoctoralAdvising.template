@@ -4,7 +4,23 @@
 \begin{longtable}{lp{1.5cm} p{3.5cm}p{4.5cm}}
 Postdoctoral Researcher & Years & Affiliation & Current Employment\\
 \hline 
-\endhead 
+\endfirsthead
+
+
+\multicolumn{4}{c}%
+{{\VAR{table_name} - continued from previous page }} \\ \\
+Postdoctoral Researcher & Years & Affiliation & Current Employment\\
+\hline 
+\endhead
+
+\\
+\multicolumn{4}{c}%
+{{ \VAR{table_name} continued on next page }} \\
+\endfoot
+
+\hline \hline
+\endlastfoot
+
 \BLOCK{for postdoc in items}
 \VAR{postdoc.Postdoc|tex_escape} & \VAR{postdoc|make_years} & \VAR{postdoc.Institution|tex_escape}, \VAR{postdoc.Department|tex_escape} & \VAR{postdoc.Title|tex_escape} - \VAR{postdoc.Organization|tex_escape}  \\
 \BLOCK{endfor}

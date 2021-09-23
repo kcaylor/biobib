@@ -4,7 +4,23 @@
 \begin{longtable}{llp{12cm}}
 Year & Role & Organization\\
 \hline 
-\endhead 
+\endfirsthead
+
+
+\multicolumn{3}{c}%
+{{\VAR{table_name} - continued from previous page }} \\ \\
+Year & Role & Organization\\
+\hline 
+\endhead
+
+\\
+\multicolumn{3}{c}%
+{{ \VAR{table_name} continued on next page }} \\
+\endfoot
+
+\hline \hline
+\endlastfoot
+
 \BLOCK{for service in items}
 \VAR{service.Year|tex_escape} & \VAR{service.Role|tex_escape} & \VAR{service.Organization|tex_escape} \\
 \BLOCK{endfor}

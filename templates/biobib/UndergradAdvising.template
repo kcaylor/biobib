@@ -4,7 +4,23 @@
 \begin{longtable}{lp{6.5cm} p{4.5cm}p{2cm}p{4cm}}
 Student & Project & Role & Year \\
 \hline 
-\endhead 
+\endfirsthead
+
+
+\multicolumn{4}{c}%
+{{\VAR{table_name} - continued from previous page }} \\ \\
+Student & Project & Role & Year \\
+\hline 
+\endhead
+
+\\
+\multicolumn{4}{c}%
+{{ \VAR{table_name} continued on next page }} \\
+\endfoot
+
+\hline \hline
+\endlastfoot
+
 \BLOCK{for student in items}
 \VAR{student.Student|tex_escape} & \VAR{student.Project|tex_escape} & \VAR{student.Role|tex_escape} & \VAR{student.Year|tex_escape} \\
 \BLOCK{endfor}

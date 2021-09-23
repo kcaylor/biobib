@@ -4,6 +4,7 @@ import time
 import re
 from jinja2 import Environment, FileSystemLoader
 
+
 latex_env = Environment(
     block_start_string='\BLOCK{',
     block_end_string='}',
@@ -97,9 +98,11 @@ latex_env.filters['stringify'] = stringify
 
 class Table:
 
-    def __init__(self, name=None, csv_file=None, env=latex_env,
+    def __init__(self, name=None, csv_file=None, 
+            env=latex_env, table_name=None,
             template_file=None, filters=None):
         self.name = name
+        self.table_name = table_name
         self.df = pd.read_csv(csv_file)
         self.columns = ""
         self.type = "longtable"
@@ -123,6 +126,7 @@ class Table:
 
     def render_template(self):
         rendered_tex = self.template.render(
+            table_name=self.table_name,
             created=time.strftime("%Y-%m-%d %H:%M"),
             items=list(self.df.to_dict('records'))
         )
@@ -150,6 +154,7 @@ class Service(Table):
     def __init__(
             self,
             name='Service',
+            table_name='Service',
             csv_file=None,
             category='P',
             cumulative=False,
@@ -160,12 +165,12 @@ class Service(Table):
         self.category = category
         self.df = self.clean_df()
         
-    def render_template(self):
-        rendered_tex = self.template.render(
-            created=time.strftime("%Y-%m-%d %H:%M"),
-            items=self.df.to_dict('records')
-        )
-        return rendered_tex
+    # def render_template(self):
+    #     rendered_tex = self.template.render(
+    #         created=time.strftime("%Y-%m-%d %H:%M"),
+    #         items=self.df.to_dict('records')
+    #     )
+    #     return rendered_tex
 
     def clean_df(self):
         df = self.df
@@ -197,11 +202,12 @@ class UniversityService(Service):
     def __init__(
             self,
             name='UniversityService',
+            table_name='University Service',
             csv_file=None,
             category='U',
             cumulative=False):
         super(UniversityService, self).__init__(
-            name=name, csv_file=csv_file,
+            name=name, csv_file=csv_file, table_name=table_name,
             category=category, cumulative=cumulative)
         self.category = category
 
@@ -211,30 +217,35 @@ class DepartmentalService(Service):
     def __init__(
             self,
             name='DepartmentalService',
+            table_name='Department Service',
             csv_file=None,
             category='D',
             cumulative=False):
         super(DepartmentalService, self).__init__(
-            name=name, csv_file=csv_file,
+            name=name, csv_file=csv_file, table_name=table_name,
             category=category, cumulative=cumulative)
         self.category = category
-
 
 class Publications(Table):
 
     def __init__(
             self,
+            env=latex_env,
             name='Publications',
+            table_name='Cumulative List of Publications',
             csv_file=None,
             category='P',
             template_file='biobib/Publications.template'):
+        self.env = env
         self.filters = {
             'make_row': self.make_row,
             'doi': self.doi,
             'href': self.href
         }
         super(Publications, self).__init__(
-            name=name, csv_file=csv_file, template_file=template_file, filters=self.filters)
+            name=name, csv_file=csv_file, template_file=template_file, 
+            table_name=table_name,
+            env=self.env, filters=self.filters)
         self.category = category
         self.cumulative = True  # Always provide complete publication list
         self.df = self.clean_df()
@@ -341,9 +352,10 @@ class InPress(Publications):
 
     def __init__(self, name='InPress',
             csv_file=None,  category='A',
+            table_name='Works in Press',
             template_file='biobib/InPressPublications.template'):
         super(InPress, self).__init__(
-            name=name, csv_file=csv_file,
+            name=name, csv_file=csv_file, table_name=table_name,
             template_file=template_file, category=category)
         self.category = category
 
@@ -359,22 +371,24 @@ class Submitted(Publications):
 class Courses(Table):
 
     def __init__(self, name='Courses', csv_file=None, cumulative=False,
+            table_name='Catalog Courses',
             template_file='biobib/Courses.template'):
         self.filters = {
             'href': self.href
         }
         super(Courses, self).__init__(
-            name=name, csv_file=csv_file, template_file=template_file,\
+            name=name, csv_file=csv_file, template_file=template_file,
+            table_name=table_name,
             filters=self.filters)
         self.cumulative = cumulative
         self.df = self.clean_df()
         
-    def render_template(self):
-        rendered_tex = self.template.render(
-            created=time.strftime("%Y-%m-%d %H:%M"),
-            courses=self.df.to_dict('records')
-        )
-        return rendered_tex
+    # def render_template(self):
+    #     rendered_tex = self.template.render(
+    #         created=time.strftime("%Y-%m-%d %H:%M"),
+    #         courses=self.df.to_dict('records')
+    #     )
+    #     return rendered_tex
 
     def clean_df(self):
         df = self.df
@@ -386,9 +400,11 @@ class Courses(Table):
 class MESM(Table):
 
     def __init__(self, name='MESMProject', csv_file=None, cumulative=False,
+                 table_name='MESM Projects Advised',
             template_file='biobib/MESMProjects.template'):
         super(MESM, self).__init__(
-            name=name, csv_file=csv_file, template_file=template_file)
+            name=name, csv_file=csv_file, 
+            table_name=table_name, template_file=template_file)
         self.cumulative = cumulative
         self.df = self.clean_df()
 
@@ -398,8 +414,10 @@ class MESM(Table):
 class UndergradAdvising(Table):
 
     def __init__(self, name='Undergradautes', csv_file=None, cumulative=False,
-            template_file='biobib/UndergradAdvising.template'):
+                 table_name='Undergraduate Projects Directed',
+                template_file='biobib/UndergradAdvising.template'):
         super(UndergradAdvising, self).__init__(
+            table_name=table_name,
             name=name, csv_file=csv_file, template_file=template_file)
         self.cumulative = cumulative
         self.df = self.clean_df()
@@ -420,9 +438,10 @@ class Visitors(Table):
 class GraduateAdvising(Table):
 
     def __init__(self, name='GraduateAdvising', csv_file=None, cumulative=False,   # NOQA
-                template_file='biobib/GradAdvising.template'):
+                template_file='biobib/GradAdvising.template', table_name='GraduateAdvising'):
         super(GraduateAdvising, self).__init__(
-            name=name, csv_file=csv_file, template_file=template_file)
+            name=name, table_name=table_name, 
+            csv_file=csv_file, template_file=template_file)
         self.cumulative = cumulative
         self.df = self.clean_df()
         
@@ -438,12 +457,14 @@ class GraduateAdvising(Table):
 class PostdoctoralAdvising(Table):
 
     def __init__(self, name='PostdoctoralAdvising', csv_file=None, cumulative=False,  # NOQA
+            table_name='Postdoctoral Scholars Supervised', 
             template_file='biobib/PostdoctoralAdvising.template'):
         self.filters = {
             'make_years': self.make_years
         }
         super(PostdoctoralAdvising, self).__init__(
-            name=name, csv_file=csv_file, template_file=template_file, filters=self.filters)
+            name=name, csv_file=csv_file, 
+            table_name=table_name, template_file=template_file, filters=self.filters)
         self.cumulative = cumulative
         self.df = self.clean_df()
 
@@ -467,10 +488,12 @@ class PostdoctoralAdvising(Table):
 class Lectures(Table):
 
     def __init__(self, name='Lectures', csv_file=None, cumulative=False,
-            template_file='biobib/Lectures.template'):
+            template_file='biobib/Lectures.template',
+            table_name='Lectures and Seminars Presented'):
         super(Lectures, self).__init__(
             name=name,
             csv_file=csv_file,
+            table_name=table_name,
             template_file=template_file)
         self.cumulative = cumulative
         self.df = self.clean_df()
@@ -485,8 +508,12 @@ class Lectures(Table):
 class Proceedings(Lectures):
 
     def __init__(self, name='Proceedings', csv_file=None, cumulative=False,
-            template_file='biobib/Proceedings.template'):
-        super(Lectures, self).__init__(name=name, csv_file=csv_file, template_file=template_file)
+            template_file='biobib/Proceedings.template',
+            table_name='Conference Posters and Presentations'):
+        super(Lectures, self).__init__(
+            name=name,
+            table_name=table_name,
+            csv_file=csv_file, template_file=template_file)
         self.cumulative = cumulative
         self.df = self.clean_df(cumulative=cumulative)
 
@@ -494,7 +521,7 @@ class Proceedings(Lectures):
         df = self.df
         df = self.clean_cumulative(df)
         # df['Topic'] = df['Title'] + ". " + df['Authors']
-        df = df.sort_values(by=['Year'], ascending=[True])
+        df = df.sort_values(by=['Year','Month'], ascending=[True, True])
         df.Year = df.Year.astype(int)
         return df
 
@@ -502,12 +529,14 @@ class Proceedings(Lectures):
 class Funding(Table):
 
     def __init__(self, name='Funding', csv_file=None, cumulative=False,
-            template_file='biobib/Funding.template'):
+            template_file='biobib/Funding.template',
+            table_name='Grants and Contracts'):
         self.filters = {
             'make_years': self.make_years
         }
         super(Funding, self).__init__(
             name=name, csv_file=csv_file,
+            table_name=table_name,
             template_file=template_file, filters=self.filters)
         self.cumulative = cumulative
         self.df = self.clean_df()
@@ -549,6 +578,7 @@ class Funding(Table):
     
     def render_template(self):
         rendered_tex = self.template.render(
+            table_name=self.table_name,
             created=time.strftime("%Y-%m-%d %H:%M"),
             items=list(self.df.to_dict('records')),
             total=self.total(new=False),
@@ -575,9 +605,10 @@ class OtherProfessionalActivities(Table):
 
 class SpecialAppointments(Table):
     def __init__(self, name='SpecialAppointments', csv_file=None, cumulative=False,
-            template_file='biobib/SpecialAppointments.template'):
+            template_file='biobib/SpecialAppointments.template',
+            table_name='Special Appointments'):
         super(SpecialAppointments, self).__init__(
-            name=name, csv_file=csv_file,
+            name=name, csv_file=csv_file, table_name=table_name,
             template_file=template_file)
         self.cumulative = cumulative
         self.df = self.clean_df()
@@ -591,12 +622,13 @@ class SpecialAppointments(Table):
 class Reviews(Table):
 
     def __init__(self, name='Reviews', csv_file=None, cumulative=False,
-            template_file='biobib/Reviews.template'):
+            template_file='biobib/Reviews.template',
+            table_name='Reviewing and Refereeing Activity'):
         self.filters = {
             'add_count': self.add_count
         }
         super(Reviews, self).__init__(
-            name=name, csv_file=csv_file,
+            name=name, csv_file=csv_file, table_name=table_name,
             template_file=template_file, filters=self.filters)
         self.cumulative = cumulative
         self.df = self.clean_df()
