@@ -1,4 +1,6 @@
-Year,Q,Quarter,QYR,Course,Title,Class Type,IWC Equivalents,Units,Hours per Week,Enrollment,ESCI,ESCI Link,Evals,Eval,Q1,Q2
+Year,Q,Quarter,QYR,Course,Title,Class Type,IWC,Units,Hours per Week,Enrollment,ESCI,ESCI Link,Evals,Eval,Q1,Q2
+2021,4,Fall,F21,Credit,Geography IWC Credit for ERI Directorship,-,0.75,,,,,,,,,
+2021,4,Fall,F21,Credit,Bren IWC Credit for ERI Directorship,-,0.88,,,,,,,,,
 2021,2,Spring,S21,ESM 401A,Group Project - A,Lec,0.29,4,1,5,No,,No,1,,
 2021,2,Spring,S21,ESM 401D,Group Project - D,Dis,0.13,2,1,4,No,,No,1,,
 2021,2,Spring,S21,GEOG 288KC,Special Topics in Geography,Dis,1,2,1,5,Yes,https://ucsb.box.com/s/wkdexakrybpri16xk2gu5860so2ae0xa,Yes,1,2.0,1.0
@@ -11,6 +13,8 @@ Year,Q,Quarter,QYR,Course,Title,Class Type,IWC Equivalents,Units,Hours per Week,
 2021,1,Winter,W21,GEOG 597,Individual Study - PhD Exam,Tut,0,,1,1,No,,No,1,,
 2021,1,Winter,W21,GEOG 598,Master’s Thesis,Tut,0,,1,1,No,,No,1,,
 2021,1,Winter,W21,GEOG 599,PhD Dissertation,Tut,0,,2,2,No,,No,1,,
+2020,4,Fall,F20,Credit,Geography IWC Credit for ERI Directorship,-,0.75,,,,,,,1,,
+2020,4,Fall,F20,Credit,Bren IWC Credit for ERI Directorship,-,0.88,,,,,,,1,,
 2020,3,Fall,F20,ESM 203,Earth System Science,Lec,0.5,4,1,83,Yes,https://ucsb.box.com/s/x8g8gcl7mtfahclm1zledaita1z5tgin,Yes,1,1.9,2.2
 2020,4,Fall,F20,ESM 401B,Group Project - B,Dis,0.29,4,1,4,No,,No,1,,
 2020,4,Fall,F20,GEOG 596,Directed Reading and Research,Tut,0,,2,2,No,,No,1,,
@@ -28,6 +32,8 @@ Year,Q,Quarter,QYR,Course,Title,Class Type,IWC Equivalents,Units,Hours per Week,
 2020,1,Winter,W20,GEOG 199,Independent Studies,Tut,0,,1,1,No,,No,1,,
 2020,1,Winter,W20,GEOG 596,Directed Reading and Research,Tut,0,,3,3,No,,No,1,,
 2020,1,Winter,W20,GEOG 599,PhD Dissertation,Tut,0,,2,2,No,,No,1,,
+2019,4,Fall,F19,Credit,Geography IWC Credit for ERI Directorship,-,0.75,,,,,,,1,,
+2019,4,Fall,F19,Credit,Bren IWC Credit for ERI Directorship,-,0.88,,,,,,,1,,
 2019,4,Fall,F19,ESM 203,Earth System Science,Lec,0.5,4,1,87,Yes,https://ucsb.box.com/s/btln348spk7zsculb0swyrqe6nt0so33,Yes,1,2.2,2.6
 2019,4,Fall,F19,ESM 401B,Group Project - B,Dis,0.29,4,1,4,No,,No,1,,
 2019,4,Fall,F19,GEOG 596,Directed Reading and Research,Tut,0,,4,4,No,,No,1,,
@@ -42,6 +48,8 @@ Year,Q,Quarter,QYR,Course,Title,Class Type,IWC Equivalents,Units,Hours per Week,
 2019,1,Winter,W19,ESM 401C ,Group Project - C,Dis,0.29,4,1,5,No,,No,1,,
 2019,1,Winter,W19,GEOG 596,Directed Reading and Research,Tut,0,,1,1,No,,No,1,,
 2019,1,Winter,W19,GEOG 599,PhD Dissertation,Tut,0,,2,2,No,,No,1,,
+2018,4,Fall,F18,Credit,Geography IWC Credit for ERI Directorship,-,0.75,,,,,,,1,,
+2018,4,Fall,F18,Credit,Bren IWC Credit for ERI Directorship,-,0.88,,,,,,,1,,
 2018,4,Fall,F18,ESM 203,Earth System Science,Lec,1,4,1,90,Yes,https://ucsb.box.com/s/vvhpxerul6hbzum3fvmwigzd3y8yset6,Yes,1,2.3,2.8
 2018,4,Fall,F18,ESM 401B,Group Project - B,Dis,0.29,4,1,5,No,,No,1,,
 2018,4,Fall,F18,GEOG 199RA,Independent Research Assistant,Tut,0,,1,1,No,,No,1,,

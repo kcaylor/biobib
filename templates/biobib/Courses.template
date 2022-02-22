@@ -1,14 +1,14 @@
 % UC Bio-bib Catalog Courses Table
 % Created on \VAR{created}
 
-\begin{longtable}{p{1cm}p{7cm}p{0.75cm}rrrp{2.5cm}}
-Qtr & Course & Class Type & Units & Hrs/Wk & Enrollment & ESCI/Written Evals Avail.\\
+\begin{longtable}{p{1cm}p{7cm}p{0.75cm}rrrrp{2.5cm}}
+Qtr & Course & Class Type & IWC & Units & Hrs/Wk & Enrollment & ESCI/Written Evals Avail.\\
 \hline 
 \endfirsthead
 
 \multicolumn{7}{c}%
 {{\VAR{table_name} - continued from previous page }} \\ \\
-Qtr & Course & Class Type & Units & Hrs/Wk & Enrollment & ESCI/Written Evals Avail.\\
+Qtr & Course & Class Type & IWC & Units & Hrs/Wk & Enrollment & ESCI/Written Evals Avail.\\
 \hline 
 \endhead
 
@@ -22,7 +22,7 @@ Qtr & Course & Class Type & Units & Hrs/Wk & Enrollment & ESCI/Written Evals Ava
 
 
 \BLOCK{ for course in items }
-\VAR{course.QYR} & \VAR{course.Course}, \VAR{course.Title} & \VAR{course['Class Type']} & \VAR{course.Units|tex_escape} & \VAR{course['Hours per Week']} & \VAR{ course.Enrollment} & \VAR{course.ESCI}/\VAR{course.Evals} \BLOCK{if course.Evals} \VAR{course['ESCI Link']|href} \BLOCK{endif} \\ 
+\VAR{course.QYR} & \VAR{course.Course}, \VAR{course.Title} & \VAR{course['Class Type']} & \VAR{course.IWC|tex_escape} & \VAR{course.Units|tex_escape} & \VAR{course['Hours per Week']|tex_escape} & \VAR{ course.Enrollment|tex_escape} & \VAR{course.ESCI|tex_escape}/\VAR{course.Evals|tex_escape} \BLOCK{if course.Evals} \VAR{course['ESCI Link']|href} \BLOCK{endif} \\ 
 \BLOCK{ endfor } 
 \end{longtable}
 

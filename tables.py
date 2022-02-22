@@ -6,6 +6,7 @@ from jinja2 import Environment, FileSystemLoader
 
 
 latex_env = Environment(
+    extensions = ['jinja2.ext.do'],
     block_start_string='\BLOCK{',
     block_end_string='}',
     variable_start_string='\VAR{',
@@ -63,7 +64,8 @@ def tex_escape(text):
         '‐': r'--',
         '“': r'``',
         '”': r"''",
-        'é': r'\'e'
+        'é': r'\'e',
+        'nan': r'--'
     }
 
     text = str(text)
@@ -235,11 +237,14 @@ class Publications(Table):
             table_name='Cumulative List of Publications',
             csv_file=None,
             category='P',
+            type=None,
             template_file='biobib/Publications.template'):
         self.env = env
         self.filters = {
             'make_row': self.make_row,
+            'make_citation': self.make_citation,
             'doi': self.doi,
+            'doi_link': self.doi_link,
             'href': self.href
         }
         super(Publications, self).__init__(
@@ -247,6 +252,7 @@ class Publications(Table):
             table_name=table_name,
             env=self.env, filters=self.filters)
         self.category = category
+        self.type = type
         self.cumulative = True  # Always provide complete publication list
         self.df = self.clean_df()
         
@@ -255,6 +261,10 @@ class Publications(Table):
         df = self.clean_cumulative(df)
         # Step 1: drop any papers not published
         df = df[df.S == self.category]
+        # Step 1.1: filter to the target publication type, if any.
+        if self.type:
+            df = df[df.Type == self.type]
+        
         # Step 2: Concatenate authors into a single list, making sure to drop
         # empty author columns
         df['authors'] = list(
@@ -295,12 +305,20 @@ class Publications(Table):
         else:
             return "doi:{doi}.".format(doi=this_doi)
 
-    def href(self, this_href):
+    def href(self, this_href, text="[pdf]"):
         if this_href is np.NaN:
             return ""
         else:
-            return "\\href{{{href}}}{{[pdf]}}".format(href=this_href)
+            return "\\href{{{href}}}{{{text}}}".format(href=this_href,text=text)
 
+    def doi_link(self, this_doi):
+        if this_doi is np.NaN:
+            return ""
+        else:
+            this_href = "https://doi.org/{doi}".format(doi=str(this_doi))
+            text = "doi:{doi}".format(doi=str(this_doi).rstrip())
+            return "\\href{{{href}}}{{{text}}}".format(href=this_href, text=text)
+     
     def make_row(self, row):
         if row['Type'] == 'RA':
             return self.make_article(row)
@@ -308,6 +326,21 @@ class Publications(Table):
             return self.make_chapter(row)
         elif row['Type'] == 'CP':
             return self.make_chapter(row)
+
+    def make_citation(self, this_row):
+        citation = "\item "
+        citation += "{authors} ({year}) {title}. \\emph{{{publisher}}}, {volume}{pages}. {href}".format( #NOQA
+            year=tex_escape(str(this_row['YEAR'])),
+            title=tex_escape(this_row['TITLE']),
+            authors=tex_escape(this_row['authors']),
+            # doi=self.doi(this_row['DOI']),
+            href=self.doi_link(this_row['DOI']),
+            volume=tex_escape(this_row['VOL']),
+            pages=colonify(tex_escape(this_row['PAGES'])),
+            publisher=tex_escape(this_row['PUBLISHER'])
+        )
+        return citation
+
 
     def make_article(self, this_row):
         row = ""
@@ -394,7 +427,7 @@ class Courses(Table):
         df = self.df
         # Step 1: drop any courses from before this eval period
         df = self.clean_cumulative(df)
-        df = df.sort_values(['Year', 'Q', 'Title'], ascending=[True, True, True])  # NOQA
+        df = df.sort_values(['Year', 'Q', 'Course'], ascending=[True, True, True])  # NOQA
         return df
 
 class MESM(Table):

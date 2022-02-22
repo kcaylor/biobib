@@ -1,0 +1,38 @@
+% UC Bio-bib Publication Table
+% Created on \VAR{created}
+
+\BLOCK{ set years = [] }
+\BLOCK{ for publication in items if publication.YEAR not in years }
+    \BLOCK{ do years.append(publication.YEAR) }
+\BLOCK{ endfor }
+
+\BLOCK{ set max_year = years[-1]}
+
+\mbox{\ \ \ \underline{\textbf{\VAR{max_year } }}}
+
+\begin{etaremune}
+
+\BLOCK{for publication in items}
+\BLOCK{if (publication.YEAR == max_year) }
+\BLOCK{ if (publication.Type == "RA") }
+\VAR{publication|make_citation}
+\BLOCK{ endif }
+\BLOCK{ endif }
+\BLOCK{ endfor }
+
+\BLOCK{ for year in years|reverse }
+\BLOCK{ if (year != max_year) }
+
+\mbox{\ \ \ \underline{\textbf{\VAR{year } }}}
+
+\BLOCK{for publication in items}
+\BLOCK{if (publication.YEAR == year) }
+\BLOCK{ if (publication.Type == "RA") }
+\VAR{publication|make_citation}
+\BLOCK{ endif }
+\BLOCK{ endif }
+\BLOCK{ endfor }
+\BLOCK{ endif }
+\BLOCK{ endfor }
+
+\end{etaremune}
