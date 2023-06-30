@@ -1,10 +1,13 @@
-Student,Project,University,Role,Year,Eval
-Craig Sinkler,,Princeton University,,2016,0
-Elliot Chang,,Princeton University,,2016,0
-Sierra Yarnes,Hydrological dynamics of the Dangermond Preserve,UCSB,Chair,2020,1
-Gabby Ragazzo,,Princeton University,,2014,0
-Marcus Spiegel,,Princeton University,,2015,0
-Dee Luo,,Princeton University,,2015,0
-Jon Choi,,Princeton University,,2015,0
-Kathleen Ryan,,Princeton University,,2012,0
-Molly O’Connor,,Princeton University,,2012,0
+Student,Author,Project,University,Role,Year,Eval
+Craig Sinkler,"Sinkler, CJ",,Princeton University,,2016,0
+Elliot Chang,"Chang, E.",,Princeton University,,2016,0
+Sierra Yarnes,"Yarnes, S.",Hydrological dynamics of the Dangermond Preserve,UCSB,Chair,2020,1
+Gabby Ragazzo,"Ragazzo, G.",,Princeton University,,2014,0
+Marcus Spiegel,"Spiegel, M.",,Princeton University,,2015,0
+Dee Luo,"Luo, D.",,Princeton University,,2015,0
+Jon Choi,"Choi, J.",,Princeton University,,2015,0
+Kathleen Ryan,"Ryan, K.",,Princeton University,,2012,0
+Molly O’Connor,"O’Connor, M",,Princeton University,,2012,0
+Spencer Frey,"Frey, S.",Fluxbots,UCSB,Research Mentor,2020,
+Vincent Benenati,"Benenati, V.",Fluxbots,UCSB,Research Mentor,2020,
+Grace Lewin,"Lewin, G.",Fluxbots,UCSB,Research Mentor,2020,

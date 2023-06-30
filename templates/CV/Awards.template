@@ -1,0 +1,15 @@
+% CV Awards Table
+% Created on \VAR{created}
+
+\textsc{\underline{Awards \& Honrs}}
+
+\begin{longtable}{p{.25in} l p{5.in}}
+
+\endfirsthead
+\multicolumn{3}{l}{\hspace{.1in} \textsc{\underline{Awards \& Honors }}  -- continued
+\vspace*{.1in} }  \endhead
+
+\BLOCK{for award in items|reverse}
+\VAR{award.Year} & \VAR{award.Honor|tex_escape}, & \VAR{award.Organization|tex_escape} \\
+\BLOCK{endfor}
+\end{longtable}

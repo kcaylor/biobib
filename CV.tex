@@ -2,17 +2,29 @@
 %
 % CV 
 %
-\documentclass[10pt]{report}
-%\usepackage{fullpage}
+% \documentclass[10pt]{report}
+\documentclass[10pt]{article}
+\usepackage[bottom=1in,left=1in,top=1in,right=0.75in]{geometry}
+\usepackage{tabularx}
+\usepackage{fancyhdr}
+\usepackage{supertabular}
 \usepackage{longtable}
-%\usepackage{revnum}
- \usepackage{etaremune}
- %%%%%%%%%%%%%
-\addtolength{\oddsidemargin}{-1in}
-\addtolength{\evensidemargin}{-1in}
-\addtolength{\textwidth}{2in}
-\addtolength{\topmargin}{-.5in}
-\addtolength{\textheight}{1in}
+\usepackage{makecell}
+\usepackage{array}
+\usepackage[linkcolor=red,urlcolor=red]{hyperref}
+\usepackage[official]{eurosym}
+\usepackage[us]{datetime}
+\usepackage{etaremune}
+\usepackage[pdftex]{graphics}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\setcounter{LTchunksize}{5}
+
+\pagestyle{fancy}
+\lhead{(Page \thepage)}
+\cfoot{}
+\renewcommand{\headrulewidth}{0pt}
 
 %%%%%%%%%%%% 
 \setcounter{secnumdepth}{0}
@@ -53,9 +65,10 @@
 \vspace*{.1in}
  
 \begin{tabular}{l p{5.5in} }
-2016 - \ \ \ \ & Director, Earth Research Institute, University of California, Santa Barbara \\ 
+2022 - \ \ \ \ & Associate Vice Chancellor, Office of Research, UCSB \\
 2016 - \ \ \ \ & Full Professor, Bren School of Environmental Science \& Management, UCSB \\ 
 2016 - \ \ \ \ & Full Professor, Dept. of Geography, University of California, Santa Barbara \\ 
+2016 - 2022 & Director, Earth Research Institute, University of California, Santa Barbara \\ 
 2014 - 2016 & Director, Environmental Studies Program, Princeton University \\
 2013 - 2016 & Associate Professor, Dept. of Civil and Environmental Engineering, Princeton University \\
 2013 - 2016 & Affiliated Faculty, Dept. of Ecology and Evolutionary Biology, Princeton University \\
@@ -74,39 +87,24 @@
 Ecohydrological dynamics, Isotope ecohydrology, Coupled natural-human systems
 
 \vspace*{.1in}
-\textsc{\underline{Awards \& Honors}}
-\vspace*{.1in}
 
-\begin{tabular}{l l}
+\input{tex/CV/Awards}
 
-
-2018 & Fellow, National Geographic Society \\
-2015 & Princeton Engineering Commendation List for Outstanding Teaching \\
-2012 & Princeton Engineering Commendation List for Outstanding Teaching \\ 
-2011 & Editors' Citation for Excellence in Refereeing for Reviews of Geophysics \\
-2009 & Early Career Hydrologic Sciences Award, American Geophysical Union \\  
-2009 & E. Lawrence Keyes, Jr./Emerson Electric Co. Faculty Advancement Award, Princeton University \\
-2009 & CAREER Award, National Science Foundation \\
-2004 & Postdoctoral Synthesis Fellowship, National Center for Earth Dynamics \\
-2003 & Clayton Postdoctoral Fellowship, Princeton Environmental Institute \\
-2002 & DuPont Fellowship, University of Virginia \\
-2001 & Earth System Science Fellowship, NASA \\
-1998 & Governor's Fellowship, University of Virginia \\
-1996 & Distinguished Major in Environmental Sciences, University of Virginia \\
-\end{tabular}
-
-\vspace{.1in}
+\newpage
 
 \textsc{\underline{Teaching \& Course Instruction}}
 
 \begin{longtable}{l p{5.5in}}
+
 \endfirsthead
-\multicolumn{2}{l}%
-{\hspace{.1in} \textsc{\underline{Teaching \& Course Instruction}}  -- continued 
+\multicolumn{2}{l}{\hspace{.1in} \textsc{\underline{Teaching \& Course Instruction}}  -- continued 
 \vspace*{.1in} }  \endhead
-2019 -  & G136: \emph{``Water, Energy, and Ecosystems''}, University of California, Santa Barbara \\
-2018  - & ESM203: \emph{``Introduction to Earth System Science''}, University of California, Santa Barbara \\
-2019 & Bren MESM Project: \emph{``Green infrastructure for coral reef protection in Hawaii'}, University of California, Santa Barbara \\
+
+2018  - 2022 & ESM203: \emph{``Introduction to Earth System Science''}, University of California, Santa Barbara \\
+2019 - 2020  & G136: \emph{``Water, Energy, and Ecosystems''}, University of California, Santa Barbara \\
+2021 & Bren MESM Project \emph{``Estimating Habitat Connectivity to Guide Wildlife Conservation and Management Planning at The Nature Conservancy’s Jack and Laura Dangermond Preserve''}, University of California, Santa Barbara \\
+2020 & Bren MESM Project \emph{``Wild Pig Management at the Jack and Laura Dangermond Preserve''}, University of California, Santa Barbara \\
+2019 & Bren MESM Project: \emph{``Green infrastructure for coral reef protection in Hawaii''}, University of California, Santa Barbara \\
 2018 & Bren MESM Project: \emph{``Determining conservation research opportunities at the TNC Point Conception Dangermond Preserve''}, University of California, Santa Barbara \\
 2017 & Bren MESM Project: \emph{``Exploring the Return on Investment Case for Natural Infrastructure Investment in the Upper Mississippi River Basin''}, University of California, Santa Barbara \\
 2017 & G167/ES167: \emph{``Biogeography''}, University of California, Santa Barbara \\ 
@@ -130,89 +128,21 @@ Ecohydrological dynamics, Isotope ecohydrology, Coupled natural-human systems
 
 \vspace{0.1in}
 
-
 \textsc{\underline{Invited Seminars \& Presentations}}
 
-\begin{longtable}{p{.25in} r p{5.in}}
-
-\endfirsthead
-\multicolumn{3}{l}{\hspace{.1in} \textsc{\underline{Invited Seminars \& Presentations }}  -- continued 
-\vspace*{.1in} }  \endhead
-2021 & Keynote Speaker, & Artificial Intelligence and Machine Learning in Earth \& Environmental Science, Helmholtz Institute \\ 
-2020 & Invited Speaker, & 2020 AGU Fall Meeting, San Francisco, CA \\
-2019 & Invited Speaker, & 2019 AGU Fall Meeting, San Francisco, CA \\
-2019 & Invited Speaker, & 44th New Phytologist Symposium, Accra, Ghana \\
-2019 & Keynote Speaker, & UCSB Spring Board of Trustees Meeting, May 2019 \\
-2018 & Invited Speaker, & Session on ``Vegetation dynamics and ecosystem resilience under global climate change'', Ecological Society of America Annual Meeting, August 2018 \\
-%2018 & Invited Participant, & Workshop on ``The Social-Ecological Future of the American West'', Boise St. University, May 2018 \\
-2018 & Invited Speaker, & Workshop on Spatial Pattern Formation in Ecosystems, Princeton University, April 2017 \\
-2017 & Invited Seminar, & Department of Plant Sciences, University of California, Riverside, October 2017 \\
-2017 & Invited Speaker, & Session on ``Hydrologic connectivity: linking land use changes and management to movement and transformations of resources within catchments'', ALSO Aquatic Sciences Meeting, Honolulu, HI, February 2017 \\ 
-2016 & Invited Speaker, & Water for Food Global Conference, ``Catalytic Collaborations: Building Public-Private Partnerships for Water and Food Security,'' Water for Food Institute, University of Nebraska, April 2016\\
-2015 & Invited Speaker, & Session on ``Estimation of Spatial and Temporal Variability of Land Surface Hydrological and Thermal Processes'', AGU Fall Meeting, San Francisco, CA, December 2015 \\
-2015 & Invited Speaker, & Session on ``African Environments Across Space and Through Time: Integration Modern and Ancient Data for Insights into Terrestrial Ecosystem Dynamics'', GSA Annual Meeting, Baltimore, MD, November 2015. \\ 
-2015 & Invited Speaker, & Class of \'68 ``Princeton and the Environment Symposium'', Princeton, NJ, October 2015 \\
-2015 & Invited Seminar, & National Socio-Environmental Synthesis Center (SESYNC), Annapolis, MD, October 2015 \\
-2015 & Invited Seminar, & Program in Ecology, Evolutionary Biology, and Behavior, Michigan State University, October, 2015 \\
-2015 & Invited Lecturer, & Summer Course on \emph{``Using UAVs for Environmental Monitoring''}, U. of Basilicata., Matera, Italy, July 2015 \\
-2015 & Invited Seminar, & Chinese Academy of Agricultural Sciences, Beijing, China, June 2015. \\
-2015 & Lead Instructor, & Isotope Hydrology Training Course, Center for Agricultural and Water Research in China, China Agricultural University, June 2015. \\
-2015  & Invited Participant, & Conference on Water \& Food Security Under Changing Environments, China Agricultural University \\
-2015 & Invited Seminar, & Earth Research Institute, University of California, Santa Barbara, CA, May 2015. \\
-2015 & Invited Seminar, & Department of Civil and Environmental Engineering, University of Michigan, Ann Arbor, MI, March 2015. \\
-2015 & Invited Speaker, & Symposium on ``Advances in Earth Observation: Enabling New Insights into Global Environmental Change'', AAAS Annual Meeting, San Jose, CA, January 2015 \\
-2014 & Invited Speaker, & Session on ``Coupled Natural Human System Research Across Scales: From Emulators of Global Climate Model Output to Local-Scale Processes and Feedbacks'', AGU Fall Meeting, San Francisco, CA, December, 2014 \\
-2014 & Invited Lecturer, &  Summer Course on \emph{``Modeling Spatial/Temporal Heterogeneity in Ecohydrological Systems''}, U. of Basilicata, Matera, Italy, July 2014 \\
-2014 & Keynote Speaker, & WISENet IGERT Annual Meeting, Duke University, June 2014 \\
-2014 & Invited Speaker, & Workshop on ``Improving Water Use Efficiency in Agriculture'', China Agricultural University, Beijing, China, May 2014 \\
-2014 & Invited Speaker, & Arid Zone Hydrology Symposium, Texas A\&M University, February 2014 \\
-2013 & Invited Participant, & 2nd International Workshop on \emph{``Methods and Technologies for Environmental Monitoring and Modelling of Hydrologic and Hydraulic Risk''}, Matera, Italy, July 2013 \\
-2013 & Invited Speaker, & Symposium on Hydropedology, Soil Science Society of America Meeting, Tampa, FL, November, 2013 \\
-2012 & Invited Presenter, &  Session on \emph{``Catchment Similarity and Organisation''}, EGU Annual Meeting, Vienna, Austria April, 2012 \\
-2012 & Invited Speaker, & Session on ``Dryland Ecohydrology: Critical Issues and Technical Advances'', AGU Fall Meeting, San Francisco, CA, December, 2012 \\ 
-2012 & Invited Seminar, & Department of Environmental Science, Policy, and Management, University of California - Berkeley, August, 2012 \\ 
-2012 & Invited Seminar, & STEP Seminar, Woodrow Wilson School, Princeton University, Princeton, NJ, February, 2012 \\
-2012 & Invited Lecture, & Stuart Country Day School, Princeton NJ, February, 2012 \\
-2011 & Invited Seminar, & Department of Civil and Environmental Engineering, University of Illinois, Urbana-Champaign, October, 2011 \\ 
-2011 & Invited Speaker, & Earthwatch Annual Board Meeting, Princeton, NJ, October, 2011 \\
-2011 & Invited  Speaker, & EcoHCC'11 International Conference on Ecohydrology and Climate Change, Tomar, Portugal, September, 2011 \\ 
-2011 & Invited Lecturer, & 1$^{\mbox{st}}$ Summer School on Monitoring and Modeling Surface Hydrology, Marsico Nuovo, Italy, June, 2011 \\
-2011 & Invited Panelist, & New Jersey Symphony Orchestra Winter Concert, ``Water: Global Challenge and Local Solutions in Developing Countries'', Princeton, NJ, January 2011 \\
-2010 & Invited Speaker, & Department of Geological, Environmental, and Marine Sciences, Rider University, March, 2010 \\
-2009 & Invited Presenter, & Session on ``\emph{Landscapes in Semi-Arid and Arid Environments: A Hydrological and Ecological Perspective}'', AGU Fall Meeting, San Francisco, CA, December 2009 \\ 
-2009 & Invited Speaker, & Environmental Fluid Mechanics/Hydrology Seminar Series, MIT, November, 2009 \\
-2009 & Invited Presenter, & IV CNR-Princeton Workshop ``New frontiers in Hydrology'', Rome, July, 2009 \\
-2009 & Invited Speaker, & Department of Plant Sciences, Kenyatta University of Agriculture and Technology, Nairobi, April, 2009 \\
-2008 & Invited Presenter, & Session on \emph{``Ecosystem resilience to changing climate patterns: the role of hydrology''}, AGU Fall Meeting, San Francisco, CA December, 2008 \\
-2008 & Invited Presenter, & Symposium, \emph{``Seeing into the soil: Noninvasive characterization of biophysical processes in the soil critical zone''}, ASA-CSSA-SSSA 2008 Joint Annual Meeting, Houston, TX, October 2008 \\
-2008 & Invited Participant, &  International Ecohydrology/Ecophysiology Workshop, University of Western Australia, Perth, September 2008 \\
-2008 & Invited Presenter, & Organized Oral Session, \emph{``Towards a synthetic theory of tree-grass coexistence in savannas''}, 93$^{rd}$ Annual Ecological Society of America Meeting, Milwaukee, WI, August 2008 \\
-2007 & Invited Seminar, & Department of Civil and Environmental Engineering, Princeton University, March 2007 \\
-2007 & Invited Speaker, & Monroe County Drainage Board, Bloomingon, IN, February, 2007 \\
-2006 & Invited Presenter, & Session on \emph{``Bridging Hydrology, Soil Science and Ecology''}, AGU Fall Meeting, San Francisco, CA, December 2006 \\
-2006 & Invited Presenter, & Session on \emph{``Climate-soil-vegetation dynamics and their impacts on water balance and hydrological extremes''}, European Geophysical Union Meeting, Vienna, Austria, April 2006 \\
-2006 & Invited Seminar, & School of Public and Environmental Affairs, Indiana University, February 2006 \\ 
-2005 & Invited Presenter, & Session on \emph{``Integrated Approaches in Hydrological Process Studies''}, AGU Spring Meeting, New Orleans, Louisiana, May 2005 \\
-2005 & Invited Seminar, & Department of Environmental Sciences, Rutgers University, April 2005 \\
-2005 & Invited Seminar, & Colloquia Series, Department of Geography, Indiana University, January 2005 \\
-2004 & Invited Seminar, & Woods Hole Research Center, October 2004 \\
-2004 & Invited Seminar, & Forest Watershed Seminar Series, Department of Environmental Science, Policy, and Management, University of California - Berkeley, February 2004 \\
-2003 & Invited Participant, & Savanna Complexity: Different perceptions, Common Ground, Luiperdskloof Game Lodge, South Africa, January 2003 \\
-2002 & Invited Presenter, & Session on Ecohydrology, AGU Spring Meeting, Washington, D.C., April 2002 \\
-\end{longtable}
-
-\vspace{0.1in}
+\input{tex/CV/Lectures}
 
 \textsc{\underline{Selected Professional Service \& Membership}}
 
-\begin{longtable}{p{.75in} p{1.1in} p{4.2in}}
+\begin{longtable}{p{.75in} p{1in} p{4.5in}}
 
 \endfirsthead
 \multicolumn{3}{l}%
 {\hspace{.1in} \textsc{\underline{Professional Service \& Membership}}  -- continued 
 \vspace*{.1in} }  \endhead
+2022 - & Associate Vice Chancellor & Office of Research, University of California, Santa Barbara \\
 2020 - & Editor, & Earth's Future \\
-2016 - & Director, & Earth Research Institute, University of California, Santa Barbara \\ 
+2016 - 2022 & Director, & Earth Research Institute, University of California, Santa Barbara \\ 
 2020 - & Chair, & NCEAS Campus Advisory Committee, University of California, Santa Barbara \\
 2020 - & Member, & Faculty Executive Committee, Bren School of Environmental Science \& Management, University of California, Santa Barbara \\
 2020 - & Member, & Offsite Research Committee, Office of Research, University of California, Santa Barbara \\
@@ -348,426 +278,34 @@ Ecohydrological dynamics, Isotope ecohydrology, Coupled natural-human systems
 \end{longtable}
 
 \vspace*{.1in}
-\textsc{\underline{Selected Funded Research}}
+\textsc{\underline{Funded Research}}
 
-{\small (Total external funding as PI/Co-I: \$13.5 million)}
-
-\begin{longtable}{ l p{.8in} p{5in}  }
-
-\endfirsthead
-\multicolumn{3}{l}
-{\hspace{.1in} \textsc{\underline{Funded Research}}  -- continued 
-\vspace*{.1in} }  \endhead
-
-2019-2024 & NSF & \emph{``CNH2-L: Linkages and Interactions Between Urban Food Security and Rural Agricultural Systems''}. Co-PI, \$1,599,627. \\
-
-2019-2020 & Zegar Foundation & \emph{``Developing and Implementing Novel Tools for Assessing Riparian Ecosystem Resilience at the Dangermond Preserve''}, PI, \$321,583. \\
-
-2018-2019 & National Geographic & \emph{``AI For Earth: Mapping irrigated crop water use using very high resolution satellite imagery''}, PI, \$100,000 \\
-
-2018-2019 & Omidyar Foundation & \emph{``Developing and Scaling up the Mapping Africa Active Learning Platform''}, Co-I, \$80,267 \\
-
-2018-2022 & Dept. of Defense & \emph{``Strategic Environmental Research \& Development: Understanding and Assessing Riparian Habitat Vulnerability to Drought-Prone Climate Regimes on Department of Defense Bases in the Southwestern US''}, Co-I, \$1,704,236 \\
-
-2017-2020 & NSF & \emph{``Collaborative Research: Impacts of Dynamic Climate-Driven Water Availability on Tree Water Use and Health in Mediterranean Riparian Forests''}, Co-I, \$396,566 \\
-
-2017-2018 & NSF & \emph{``CC*Networking Infrastructure: UCSB Network Upgrade to 100 Gigabit.''}, PI, \$481,730\\
-
-2015-2019 & NSF & \emph{``Hazards SEES: Understanding Cross-Scale Interactions of Trade and Food Policy to Improve Resilience to Drought Risk''}, Co-PI, \$1,341,113 \\
-
-2015 & NSF & \emph{``FEWS Supplemental Proposal Planning Award}, PI, \$200,000 \\
-
-2015 & NSF & \emph{``I-Corps: Pulsepod: Bringing the Cloud Down to Earth''}, PI, \$50,000 \\
-
-2014-2019 & NSF & \emph{``WSC-Category 2 Collaborative: Impacts of Agricultural Decision Making and Adaptive Management on Food Security''}, PI, \$1,929,565 \\
-
-2013-2014 & JPL & Strategic University Research Partnerships, \emph{``Adding precision to agricultural practice through simultaneous chlorophyll fluorescence and infrared observations''}, Co-PI \$100,000 \\
- 
-2013-2014 & JPL & Strategic University Research Partnerships, \emph{``Rapid forest triage by sub-canopy micro air vehicle''}, Co-PI, \$100,000 \\
-
-2013-2015 & Princeton U. & Grand Challenges Inititative, \emph{``Drought and the global carbon cycle''}, Co-PI, \$200,000 \\ 
-
-2012-2015 & NSF & Division of Ecological Biology, \emph{``Collaborative Research: Quantifying the ecosystem-wide impacts of a strong interactor in African watersheds''}, PI, \$123,336. \\
-
-2011-2014 & NASA & IDS, \emph{``Multiscale effects of fire on long-term climate and precipitation''}, Co-I, \$1,149,128. \\
-
-2011-2014 & NSF & BCS/ESE, \emph{``CNH: Institutional Dynamics of Adaptation to Climate Change: Longitudinal Analysis of Snowmelt-Dependent Agricultural Systems''}, Co-PI, \$1,200,000. \\
-
-2011-2014 & Princeton U. & Council for International Teaching and Research, \emph{``AÊglobal collaborative network for coupling hydrological forecasts and food security in Sub-Saharan Africa and China''}, PI, \$225,000. \\
-	
-2010-2013 & NSF & BCS/ESE, \emph{``ESE: Collaborative Research: Spatial Resilience of Agriculturalists to Coupled Ecological and Hydrological Variability in Rural Zambia''}, PI, \$350,000. \\
-
-2010-2011 & Princeton U. & Grand Challenges Initiative, \emph{``The Importance of Green Feedbacks on Biodiversity Conservation and Management of Savanna Ecosystems''}, PI, \$100,000. \\
-
-2009-2014 & NSF & Division of Earth Sciences, \emph{``CAREER: An ecohydrological framework for understanding land degradation in dryland regions''}, PI, \$1,500,000. \\
-
-2009-2010 & NSF & OISE IRES/DDEP, \emph{``International: The impact of macropores on the spatial and temporal patterns of soil moisture in dryland ecosystems of central Kenya''}, PI, \$15,000. \\
-
-2009 & LI-COR & LI-COR Environmental Education Fund (LEEF), \emph{``Using the LI-6400XT in the Princeton Semester in Kenya Progam: From Undergraduate Education to International Impact''}, PI, \$45,000. \\
-
-2008-2013 & NSF & Division of Ecological Biology, \emph{``LTREB: KLEE - Scaling up and out at the Kenya Long-term Exclosure Experiment''}, Co-I, \$449,940. \\ 
-
-2008-2010 & NSF & Division of Ecological Biology, \emph{``Collaborative Research: Distribution and dynamics of belowground carbon in savannas''}, PI, \$250,000. \\ 
-
-2007-2009 & NSF  & Social, Behavioral, and Economic Sciences, \emph{``Human and Social Dynamics -- Dynamics of Reforestation in Coupled Social-Ecological Systems: Modeling Land-Use Decision Making and Policy Impacts''}, Co-I, \$749,150. \\
-
-2007-2008 & Indiana U.  & Office of the Vice Provost for Research, \emph{``Quantifying organic and pharmaceutical contaminants within urbanizing streams in a central Indiana urbanizing watershed''}, PI, \$51,323. \\
-
-2007-2008  & Monroe County, IN & Drainage Board/Transportation Dept., \emph{``Quantifying the impacts of development on physical and chemical hydrology of central Indiana streams''}, PI, \$96,000. \\
-
-2006-2008 & NSF &  Office of International Science and Engineering, \emph{``International Research Experience for Students -- Impacts of Disturbance on Above- and Below-ground Structure of Southern African Savannas''}, Co-PI, \$150,000 (administered by University of Virginia). \\
-
-2005-2007 &  NASA & Interdisciplinary Science in the NASA Earth Science Enterprise,\emph{ ``Hydrologic \& Nutrient Controls on the Structure and Function of Southern African Savannas: A Multi-Scale Approach''}, Co-I, \$900,000. \\ 
-
-2005-2007 & NASA &  Earth System Science Research Using Data \& Products from TERRA, AQUA, \& ACRIM Satellites, \emph{``Sources, Transports, and Impacts of Southern African Aerosols: Synthetic Case Studies Using Terra \& Aqua Satellite Products''}, Co-I, \$650,000. \\
-
-\end{longtable}
+\input{tex/CV/Funding}
 
 \vspace*{.1in}
-\textsc{\underline{Recent Selected Research Manuscripts (127 total)}}
+\textsc{\underline{Research Manuscripts (141 total)}}
 %
-%{\small (Google Scholar h-index: 44, Citations: 7,991)}
+{\small (Google Scholar h-index: 53, Citations: 11,475)}
 %\vspace*{.1in}
 
-{ \small $^{*}$ indicates current or former graduate/postdoctoral group member}
+{ \small $^{\blacktriangle}$ indicates current or former graduate advisee}
 
-{ \small $^{\dagger}$ indicates current or former visiting scholar}
+{ \small $^{\blacklozenge}$ indicates current or former postdoctoral advisee}
 
-{ \small $^{+}$ indicates current or former undergraduate group member}
+{ \small $^{\ddagger}$ indicates current or former undergraduate group member}
 
+{ \small $^{\bullet}$ indicates current or former graduate committee member}
 
-{ PP indicates pre-print publication or discussion}
+{ \small $^{\star}$ indicates current or former visiting scholar}
 
-\vspace*{.1in}
+\input{tex/CV/Publications}
 
-\mbox{\ \ \ \underline{\textbf{2021}}}
 
-\begin{etaremune}
-
-%\item [PP] Warter, M., Singer, M., Cuthbert, M.O., Roberts, D., \textbf{Caylor, K.K.}, Sabathier, R., Stella, J. (2020) ``Onset and propagation of drought into soil moisture and vegetation responses during the 2012–2019 drought in Southern California.'' {\em Hydrology and Earth System Sciences Discussions}. doi: 10.5194/hess-2020-479.
-
-\item Zhang, J., Guan, K;., Peng, B., Jiang, C., Zhou, W., Yang, Y., Pan, M. Franz, T., Heeren, D., Rudnick, D., Abimbola, O., Kimm, H., \textbf{Caylor, K.K.}, Good, S., Khanna, M., Gates, J., Cai, Y. (2021) ``Challenges and opportunities in precision irrigation decision-support systems for center pivots .'' {\em Environmental Research Letters}. doi: 10.1088/1748-9326/abe436.
-
-\item Vergopolan, N., Xiong, S., Estes, L., Wanders, N., Chaney, N.W., Wood, E.F., Konar, M., \textbf{Caylor, K.}, Beck, H.E., Gatti, N., Evans, T.,  Sheffield, J. (2020) ``Field-scale soil moisture bridges the spatial-scale gap between drought monitoring and agricultural yields.'' {\em Hydrology and Earth System Sciences Discussions}. doi: 10.5194/hess-2020-364.
-
-\item Hannah, C., Giroux, S., $^{*}$Krell, N., Lopus, S., McCann, L.E., Zimmer, A., \textbf{Caylor, K.K.}, Evans, T.P. (2021) ``Has the vision of a gender quota rule been realized for community-based water management committees in Kenya?'' {\em World Development}. doi: 10.1016/j.worlddev.2020.105154.
-
-\item Lafia, S., Kuhn, W., \textbf{Caylor, K.K.}, Hippel, L. (2021) ``Mapping research topics at multiple levels of detail''. {\em Patterns}. doi: 10.1016/j.patter.2021.100210.
-
-\mbox{\ \ \ \underline{\textbf{2020}}}
-
-\item $^{*}$Mayes, M., \textbf{Caylor, K.K.}, Singer, M.B., Stella, J.C., Roberts, D., Nagler, P. (2020) ``Climate sensitivity of water use by riparian woodlands at landscape scales.'' {\em Hydrological Processes}. doi: 10.1002/hyp.13942.
-
-\item Zeng, Z., Wang, D., Yang, L.,  Wu, J.,  Ziegler, A.D., Liu, M., Ciais, P., Searchinger, T.D., Yang, Z., Chen, D., Chen, A., Li, L., Piao, S., Taylor, D., Cai, X., Pan, M., Peng, L., Lin, P., $^{*}$Gower, D., Feng, Y.,  Zheng, C., Guan, K., Lian, X., Wang, T., Wang, L., Jeong, S., Wei, Z., Sheffield, S., \textbf{Caylor, K.}, Wood, E.F. (2020) ``Deforestation-induced warming over tropical mountain regions regulated by elevation.'' {\em Nature Geoscience}. doi: 10.1038/s41561-020-00666-0.
- 
-\item Zimmer, A., Guido, Z., $^{*}$Tuholske, C., Pakalniskis, A., Lopus, S., \textbf{Caylor, K.}, Evans, T. (2020) ``Dynamics of population growth in secondary cities across southern Africa.'' {\em Landscape Ecology}. doi: 10.1007/s10980-020-01086-6.
-
-\item Guido, Z., Zimmer, A., Lopus, S., Hannah, S., $^{*}$Gower, D.,  Waldman, K., $^{*}$Krell, N, Sheffield, S., \textbf{Caylor, K},  Evans, T. (2020) ``Farmer Forecasts: Impacts of Seasonal Rainfall Expectations on Agricultural Decision-Making in Sub-Saharan Africa.'' {\em Climate Risk Management}. doi: 10.1016/j.crm.2020.100247.
-
-\item  $^{*}$Krell, N.T. , Giroux, S.A., Guido, Z., Hannah, C., Lopus, SE , \textbf{Caylor, K.K.}, Evans, T.P. (2020) ``Smallholder farmers' use of mobile phone services in central Kenya.'' {\em Climate and Development}. doi: 10.1080/17565529.2020.1748847.
-
-\item Giroux, S.A., McCord, P., Lopus, S., $^{*}$Gower, D., Dell’Angelo, J., Dickinson, S., Chen, X, \textbf{Caylor, K.K.}, Evans, T.P. (2020) ``Environmental heterogeneity and commodity sharing in smallholder agroecosystems.'' {\em PloS One}, doi: 10.1371/journal.pone.0228021.
-
-\item  $^{*}$Tuholske, C., Andam, K., Blekking, J., Evans, T., \textbf{Caylor, K.} (2020) ``Comparing measures of urban food security in Accra, Ghana.'' {\em Food Security}. doi: 10.1007/s12571-020-01011-4.
-
-\item Elmes, A., Alemohammad, H.,  $^{*}$Avery, R., \textbf{Caylor, K.}. Eastman, R., Fishgold, L., Friedl, M.A., Jain, M., Kohli, D., Laso Bayas, J.C., Lunga, D., McCarty, J.L., Pontius, R.G., Reinmann, A.B., Rogan, J., Song, L., Stoynova, H., Ye, S., Yi, Z.F., Estes L. (2020) ``Accounting for training data error in machine learning applied to Earth observations.'' {\em Remote Sensing}. doi: 10.3390/rs12061034.
-
-\item  $^{*}$DeCarlo, K.F. and \textbf{Caylor, K.K.} (2020) ``Effects of crack morphology on soil carbon flux dynamics in a dryland vertisol.'' {\em Geoderma} doi: 
-
-\item Ribeiro, F., Roberts, D.A., Hess, L.L., Davis, F.W., \textbf{Caylor, K.K.}, Daldegan, G.A. (2020) ``Geographic Object-Based Image Analysis framework for mapping vegetation physiognomic types at fine scales in Neotropical savannas.'' {\em Remote Sensing}. 
-
-\mbox{\ \ \ \underline{\textbf{2019}}}
-
-\item Wei, Z., Lee, X., Aemisegger, F., Benetti, M., Berkelhammer, M., Casado, M., \textbf{Caylor, K.K.}, Christner, E., Dryoff, C., Garcia, O, Gonzalez, Y., Griffis, T., Kurita, N., Liang, J., Liang, M.C., Lin, G., Noone, D., Gribanov, K., Munksgaard, N.C., Schneider, M., Ritter, F., Steen-Larsen, H.C., Vallet-Coulonb, C., Wen, X., Wright, J.S., Xiao, W., Yoshimura, K. (2019) ``A global database of water vapor isotopes measured with high temporal resolution infrared laser spectroscopy.'' {\em Scientific Data}. doi: 10.1038/sdata.2018.302.
-
-\item Waldman, K.B., Vergopolan, N., Attari, S.Z., Sheffield, J., Estes, L.D., \textbf{Caylor, K.K.}, Evas, T.P. (2019) ``Cognative biases about climate variability in smallholder farming systems in Zambia.'' {\em Weather, Climate, and Society}. doi: 10.1175/WCAS-D-18-0050.1
-
-\item Waldman, K., Attari, S.Z., \small $^{*}$Gower, D.,B. Giroux, S.A., \textbf{Caylor, K.K.}, Evans, T.P. (2018) ``The salience of climate change in farmer decision making within smallholder semi-arid agroecosystems.'' {\em Climatic Change}. doi: 10.1007/s10584-019-02498-3.
-
-\item $^{*}$Tuholske, C., \textbf{Caylor, K.}, Evans, T.P., $^{*}$Avery, R. ``Variability in urban population distributions across Africa.'' {\em Environmental Research Letters} doi: 10.1088/1748-9326/ab2432.
-
-\item $^{*}$DeCarlo, K.F. and \textbf{Caylor, K.K.} (2019) ``Biophysical effects on soil crack morphology in a faunally active dryland vertisol.'' {\em Geoderma}. doi: 10.1016/j.geoderma.2018.07.042.
-
-\mbox{\ \ \ \underline{\textbf{2018}}}
-
-\item Manfreda, S. McCabe, M., Miller, P., Lucas, R.,  Madrigal, V.P., Mallinis, G., Dor, E.B., Helman, D., Estes, L., Ciraolo, G., Müllerová, J., Tauro, F., De Lima, M.I, De Lima, J., Frances, F., \textbf{Caylor, K.}, Kohv, M., Maltese, M., Perks, M., Ruiz-Pérez, G., Su, Z., Vico, G., Toth, V. (2018) ``On the Use of Unmanned Aerial Systems for Environmental Monitoring.'' {\em Remote Sensing}, doi:10.3390/rs10040641.
-
-
-\item Zhao, Y, Vergopolan, N., Baylis, K., Blekking, J.,  \textbf{Caylor, K.}, Evans, T., Giroux, S., Sheffield, J., Estes, L. (2018) ``Comparing empirical and survey-based yield forecasts in a dryland agro-ecosystem.'' {\em Agricultural and Forest Meteorology}, doi: 10.1016/j.agrformet.2018.06.024
- 
-\item Giroux, S.A., Kouper, I. Estes, L.D., Schumacher, J, Waldman, K., Greenshields, J.T, Dickinson, S.L., \textbf{Caylor, K.K.}, Evans, T.P.  ``A high-frequency mobile phone data collection approach for research in social-environmental systems: Applications in climate variability and food security in sub-Saharan Africa.'' {\em Environmental Modelling and Software}. doi:
-
-%\item 
-
-\item $^{*}$Gerlein-Safdi, C., Koohafkan, M.C., Chung, M., Rockwell, F.E., Thompson, S., \textbf{Caylor, K.K.} ``Dew deposition suppresses transpiration and carbon uptake in leaves.'' {\em Agricultural and Forest Meteorology}, doi:10.1016/j.agrformet.2018.05.015
-
-\item Estes, L. Chen, P.,  $^{*}$Debats, S., Evans, T., Ferreira, S., $^{+}$Ragazzo, G., Sheffield, J., $^{*}$Wolf, A., Wood, E.F.,  \textbf{Caylor KK} (2018) ``A large-area, spatially continuous assessment of land cover map error and its impact on downstream analyses.'' {\em Global Change Biology}, 24(1), 322-337, doi: 10.1111/gcb.13904
-
-\item Estes, L., Elsen, P., Truer, T., Ahmed, L., \textbf{Caylor, KK}, Chang, J., $^{+}$Choi, J., Ellis, E. (2018) ``The spatial and temporal domains of modern Ecology'', {\em Nature Ecology \& Evolution}, 10.1038/s41559-018-0524-4.
-
-\item [PP] $^{*}$Gerlain-Safdi, C., Gauthier, P.,  \textbf{Caylor, K.K.} (2018) ``Dew-induced transpiration suppression impacts the water and isotope balances of Colocasia leaves'', {\em bioRxiv}, doi: 10.1101/178293
-
-\item Tauro, F., Selker, J., van de Giesen, N., Abrate, T., Uijlenhoet, R., Porfiri, M., Manfreda, S., \textbf{Caylor, K.}, Moramarco, T., Benveniste, J., Ciraolo, G., Estes, L., Domeneghetti, A., Perks, M.T., Corbari, C., Rabiei, E., Ravazzani, G., Bogena, H., Harfouche, A., Brocca, L., Maltese, A., Wickert, A., Tarpanelli, A., $^{*}$Good, S., Alcapa, J.M.L., Petroselli, A., Cudennec, C., Blume, T., Hut, R., Grimaldi, S., (2018) ``Measurements and Observations in the XXI century (MOXXI): innovation and multi-disciplinarity to sense the hydrological cycle.'' {\em Hydrological Sciences Journal}., doi: 10.1080/02626667. 2017.1420191.
-
-
-\mbox{\ \ \ \underline{\textbf{2017}}}
-
-\item  $^{*}$Guan, K.,  $^{*}$Good, S.P.,  \textbf{Caylor KK}, Medvigy, D., Ming, P., Wood, E.F., Sato, H., Biasutti, M., Chen, M., Ahlstr{\"o}m, A., Xiangtao, X. (2017) ``Simulated sensitivity of African terrestrial ecosystem photosynthesis to rainfall frequency, intensity, and rainy season length.'' {\em Environmental Research Letters}, doi: 10.1088/1748-9326/aa9f30
-
-\item $^{*}$Gerlain-Safdi, C., Gauthier, P.,  $^{+}$Sinkler, C.,  \textbf{Caylor, K.K.} (2017) ``Leaf water $^{18}$O and $^{2}$H maps show directional enrichment discrepancy in {\em Colocasia esculenta}.'' {\em Plant, Cell and Environment}, doi: 10.1111/pce.13002
-
-\item $^{\dagger}$Ruiz-P\'erez, G., Kock, J., Manfreda, S., \textbf{Caylor K}, Franc\'es, F. (2017) ``Calibration of a parsimonious distributed ecohydrological daily model in a data-scarce basin by exclusively using the spatio-temporal variation of NDVI.'' {\em Hydrology and Earth System Sciences}, doi:10.5194/hess-21-6235-2017 
-
-\item Manfreda S, \textbf{Caylor KK},  $^{*}$Good SP.  (2017) ``An ecohydrological framework to explain shifts in vegetation organization across climatological gradients.'' {\em Ecohydrology}, 10: e1809. https://doi.org/10.1002/eco.1809
-
-\item McCord, P., Dell'Angelo, J., $^{*}$Gower, D.,  \textbf{Caylor, K.K.}, and Evans, T. (2017) ``Household-level heterogeneity of water resources within common-pool resource systems.'' {\em Ecology and Society}, doi:10.5751/ES-09156-220148
-
-\item Li, Shuning, Levin, N. E.,  $^{*}$Soderberg, K., Dennis, K.J., \textbf{Caylor, K.K.} (2017) ``Triple oxygen isotope composition of leaf waters in Mpala, central Kenya'', {\em Earth and Planetary Science Letters}, doi:10.1016/j.epsl.2017.02.015
-
-\item $^{\dagger}$Gong, D.Z., Mei, X.R., Hao, W.P., Wang, H.B., \textbf{Caylor, K.K.}. (2017) ``Comparison of multi-level water use efficiency between plastic film partially mulched and non-mulched croplands at eastern Loess Plateau of China'', {\em Agricultural Water Management}, doi: 10.1016/j.agwat.2016.06.006
-
-\item $^{\dagger}$Zhou, S., Zhang, Y., Ciais, P., Xiao, X.M., Luo, Y.Q., \textbf{Caylor, K.K.}, Huang, Y.F., Wang, G.Q. (2017) ``Dominant role of plant physiology in trend and variability of gross primary productivity in North America'', {\em Scientific Reports}, doi:10.1038/srep41366
-
-\item $^{\dagger}$Gong, D.Z., Meia, X.R., Hao, W.P., Wang, H.B., \textbf{Caylor, K.K.} (2017) ``Comparison of ET partitioning and crop coefficients between partial plastic mulched and non -mulched maize fields'', {\em Agricultural Water Management}, doi:10.1016/j.agwat.2016.11.016
-
-\item Colliander, A., Jackson, T.J., Bindlish, R., Chan, S., Das, N., Kim, S.B., and  44 others, including \textbf{Caylor, K.K.} (2017) ``Validation of SMAP surface soil moisture products with core validation sites'', {\em Remote Sensing of Environment}, doi: 10.1016/j.rse.2017.01.021
-
-\item [PP] $^{*}$Debats, S., Estes, L.D., Thompson, D.R., \textbf{Caylor, K.K.} (2017) ``Integrating active learning and crowdsourcing into large-scale supervised landcover mapping algorithms'', {\em PeerJ Preprints}, e3004v1. doi: 10.7287/ peerj.preprints.3004v1
-
-
-\mbox{\ \ \ \underline{\textbf{2016}}}
-
-\item $^{*}$Gower, D.B., Dell'Angelo, J., McCord, P.F.,  \textbf{Caylor, K.K.}, Evans, T.P. (2016) ``Modeling ecohydrological dynamics of smallholder strategies for food production in dryland agricultural systems'', {\em Environmental Research Letters}, doi:10.1088/1748-9326/11/11/115005
-
-\item Estes, L.D., Searchinger, T., $^{+}$Spiegel, M., Tian, D., Sichinga, S., Mwale, M., Kehoe, L., Kuemmerle, T., Berven, A., Chaney, N., Sheffield, J.m Wood, E.F., \textbf{Caylor, K.K.} (2016) ``Reconciling agriculture, carbon and biodiversity in a savannah transformation frontier'', {\em Philosophical Transactions of the Royal Society B - Biological Sciences}, doi: 10.1098/rstb.2015.0316
-
-\item $^{\dagger}$Sha, Z., Zhang, Y., \textbf{Caylor, K.K.}, Luo, Y.Q., Xiao, X.M., Ciais, P., Huang, Y.F., Wang, G.Q. (2016) ``Explaining inter-annual variability of gross primary productivity from plant phenology and physiology'', {\em Agricultural and Forest Meteorology}, doi: 10.1016/j.agrformet.2016.06.010
-
-\item $^{*}$Good, S.P.,  $^{*}$Guan, K.,  \textbf{Caylor, K.K} (2016), ``Global patterns of the contributions of storm frequency, intensity, and seasonality to inter-annual variability of precipitation''. {\em Journal of Climate}, doi:10.1175/JCLI-D-14-00653.1
-
-\item  $^{+}$Chang, E., $^{*}$Gerlein-Safdi, C., $^{*}$Wolf, A.,  \textbf{Caylor, K.K} (2016) ``Improved removal of VOCs for laser-based spectroscopy of water isotopes''. {\em Rapid Communications in Mass Spectrometry}, doi:10.1002/rcm.7497
-
-\item  $^{*}$Debats, S., $^{+}$Luo, D., Estes, L.D., Fuchs, T, \textbf{Caylor, K.K.} (2016) ``A generalized computer vision approach to mapping agricultural fields in heterogeneous landscapes''. {\em Remote Sensing of Environment}, doi:10.1016/j.rse.2016.03.010
-
-\item  Estes, L., McRitchie, D., $^{+}$Choi, J., $^{*}$Debats, S.,  Evans, T., Guthe, W., $^{+}$Luo, D., $^{+}$Ragazzo, G., Zempleni, R., \textbf{Caylor, K.K.} (2016) ``A platform for crowdsourcing the creation of representative, accurate landcover maps'', {\em Environmental Modelling \& Software}, doi:10.1016/j.envsoft.2016.01.011
-
-\item Dell'Angelo, J., McCord, P.F.,  $^{*}$Gower, D., Carpenter, S. \textbf{Caylor, K.K.}, Evans, T.P. (2016) ``Community-based Water Governance on Mount Kenya: An Assessment Based on Ostrom's Design Principles of Natural Resource Management''. {\em Mountain Research and Development}, doi:0.1659/MRD-JOURNAL-D-15-00040.1
-
-
-\mbox{\ \ \ \underline{\textbf{2015}}}
-
-\item Dintwe, K, Okin, G.S., D'Odorico, P, Hrast, T., Mladenov, N., Handorean, A.,  $^{*}$Bhattachan, A., Caylor, K.K. (2015) ``Soil organic C and total N pools in the Kalahari: potential impacts of climate change on C sequestration in savannas'', {\em Plant and Soil}, doi:10.1007/s11104-014-2292-5
-
-\item Bonachela, J.A., Pringle, R.M. , Shefer, E. , Coverdale, T.C., Guyton,  J.A.,  \textbf{Caylor, K.K}, Levin, S.A., Tarnita, C.E.  (2015) ``Termite mounds can increase the robustness of dryland ecosystems to climatic change''. {\em Science}, doi:10.1126/science.1261487
-
-\item $^{*}$Guan, K., Pan, M., Li, H.,  $^{*}$Wolf, A., Medvigy, D.,  \textbf{Caylor, K.K}, Sheffield, J., Wood, E.F., Mahli, Y., Liang, M., Kimball, J.S., Saleska, S., Berry, J., Joiner, J., Lyapustin, A.I. (2015) ``Photosynthetic seasonality of global tropical forests constrained by hydroclimate'', {\em Nature Geosciences}, doi:10.1038/ngeo2382
-
-\item McCauley, D.J., Dawson, T., Power, M.E., Finlay, J.C., Ogada, M., $^{*}$Gower, D.,  \textbf{Caylor, K.K} (2015) ``Carbon stable isotopes suggest that hippopotamus-vectored nutrients subsidize aquatic consumers in an East African river'', {\em Ecosphere}, doi:10.1890/ES14-00514.1
-
-\item $^{\dagger}$Gong, D., Hao, W., Mei, X. Gao, X. \textbf{Caylor, KK} (2015) ``Warmer and wetter soil stimulates assimilation more than respiration in rainfed agricultural ecosystem on the China Loess Plateau: the role of partially plastic film mulching tillage'', {\em PLOS One}, doi: 10.1371/journal.pone.0136578
-
-\item $^{*}$Wang, L., Manzoni, S., Ravi, S., Riveros-Iregui, D., \textbf{Caylor, K.K} (2015) ``Dynamic interactions of ecohydrological and biogeochemical processes in water-limited systems'', {\em Ecosphere}, doi: 10.1890/ES15-00122.1
-
-\item $^{*}$O'Donnell, F., \textbf{Caylor, K.K}, $^{*}$Bhattachan, A., Dintwe, K., D'Odorico, P., Okin, G. (2015) ``A quantitative description of the interspecies diversity of belowground structure in savanna woody plants'', {\em Ecosphere}, doi: 10.1890/ES14-00310.1
-
-\item [PP] Estes, L., McRitchie, D., $^{+}$Choi, J., $^{*}$Debats, S.,  Evans, T., Guthe, W., Luo, D., $^{+}$Ragazzo, G., Zempleni, R., \textbf{Caylor, K.K.} (2015) ``DIYlandcover: Crowdsourcing the creation of systematic, accurate landcover maps'', {\em Peer J PrePrints}, doi:10.7287/peerj.preprints.1030v1
-
-\item [PP] Debats, S., $^{+}$Luo, D., Estes, L.D., Fuchs, T, \textbf{Caylor, K.K.} (2015) ``A generalized computer vision approach to mapping agricultural fields in heterogeneous landscapes''. {\em Peer J PrePrints}, 3:e1688, \\ doi:10.7287/peerj.preprints.1367v1
- 
-\mbox{\ \ \ \underline{\textbf{2014}}}
-
-\item $^{*}$Wang, L., $^{*}$Good, S.P.,  \textbf{Caylor, K.K} (2014) ``Global synthesis of vegetation control on evapotranspiration partitioning'', {\em Geophysical Research Letters}, doi:10.1002/2014GL061439
-
-\item $^{*}$Guan, K., $^{*}$Good, S.P.,  \textbf{Caylor, K.K}, Sato, H., Li, H., Wood, E.F. (2014) ``Continental-scale impacts of intra-seasonal rainfall variability on simulated ecosystem responses in Africa'', {\em Biogeosciences}, doi:10.5194/bg-11-6939-2014
-
-\item Estes, L.D., Chaney, N.W, Herrera-Estrada, J., Sheffield, J, \textbf{Caylor, K.K}, Wood, E.F. (2014) ``Changing water availability during the African maize-growing season, 1979-2010'', {\em Environmental Research Letters}, doi:10.1088/1748-9326/9/7/075005
-
-\item $^{*}$Guan, K., Wood, E.F., Medvigy, D., Kimball, J., Pan, M., \textbf{Caylor, K.K}, Sheffield, J., Xu, X.T., Jones, M.O. (2014) ``Terrestrial hydrological controls on land surface phenology of African savannas and woodlands'', {\em Journal of Geophysical Research-Biogeosciences}, doi: 10.1002/2013JG002572
-
-\item $^{*}$Good, S.P., $^{*}$Soderberg, $^{*}$K., Guan, K., $^{*}$King, E.G., Scanlon, T.M., \textbf{Caylor, K.K.} (2014) ``$\delta2$H Isotopic flux partitioning of evapotranspiration over a grass field following a water pulse and subsequent dry down'', {\em Water Resources Research}, doi:10.1002/2013WR014333
-
-\item $^{*}$Guan, K., Medvigy, D. Wood, E.F., \textbf{Caylor, K.K}, Li, S., Jeong, S-J. (2014) ``Deriving Vegetation Phenological Time and Trajectory Information Over Africa Using SEVIRI Daily LAI'', {\em IEEE Transactions on Geoscience and Remote Sensing}, doi: 10.1109/TGRS.2013.2247611
-
-\item Meyer, T., D'Odorico, P., Okin, G.S., Shugart, H.H., \textbf{Caylor, K.K}, $^{*}$O'Donnell, F.C. , $^{*}$Bhattachan, A., Dintwe, K. (2014) ``An analysis of structure: biomass-structure relationships for characteristic species of the western Kalahari, Botswana'', {\em African Journal of Ecology}, doi: 10.1111/aje.12086
-
-\mbox{\ \ \ \underline{\textbf{2013}}}
-
-\item Konar, M., \textbf{Caylor, K.K.} (2013) ``Virtual water trade and development in Africa'', {\em Hydrology and Earth System Science}, doi:10.5194/hess-17-3969-2013
-
-\item Manfreda, S., \textbf{Caylor, K.K.} (2013) ``On the vulnerability of water limited ecosystems to climate change'', {\em Water}, doi:10.3390/w5020819
-
-\item Manfreda, S., Pizzola, T., \textbf{Caylor, K.K.} (2013) ``Modelling vegetation patterns in semiarid environments'', {\em Procedia Environmental Sciences}, 19, 168-177, doi:10.1016/j.proenv.2013.06.019
-
-\item $^{*}$Good, S.P., Rodriguez-Iturbe, I., \textbf{Caylor, K.K.} (2013) ``Analytical expressions of variability in ecosystem structure and function obtained from three-dimensional stochastic vegetation modelling'', {\em Proceedings of the Royal Society, Series A}, doi:10.1098/rspa.2013.0003
-
-\item $^{*}$Guan, K., Wolf, A., Medvigy, D.,  \textbf{Caylor, K.K.}, Pan, M., Wood, E.F.,  (2013) ``Seasonal coupling of canopy structure and function in African tropical forests and its environmental controls'', {\em Ecosphere}, doi:10.1890/ES12-00232.1
-
-\item $^{*}$Wang, L., Okin, G.S., D'Odorico, P., \textbf{Caylor, K.K.}, Macko, S., (2013) ``Ecosystem-scale spatial heterogeneity of stable isotopes of soil nitrogen in African savannas'', {\em Landscape Ecology}, doi:10.1007/s10980-012-9776-6
-
-\item $^{*}$Soderberg, K., $^{*}$Good, S.P., $^{+}$O'Connor, M., $^{*}$Wang, L., $^{+}$Ryan, K., \textbf{Caylor, K.K.} (2013) ``Using atmospheric trajectories to model the isotopic composition of rainfall in central Kenya'', {\em Ecosphere}, doi:10.1890/ES12-00160.1
-
-\item $^{*}$Wang, L, Niu, Shuli, $^{*}$Good, S.P., $^{*}$Soderberg, K., McCabe, M.F., Sherry, R.A., Luo, Y., Xuhui, Z., Xia, J., \textbf{Caylor, K.K.},  (2013) ``The effect of warming on grassland evapotranspiration partitioning using laser-based isotope monitoring techniques'', {\em Geochimica et Cosmochimica Acta}, doi:10.1016/j.gca.2012.12.047
-
-\mbox{\ \ \ \underline{\textbf{2012}}}
-
-\item $^{*}$O'Donnell, F.C.,  \textbf{Caylor, K.K.}, (2012) ``A model-based evaluation of woody plant encroachment impacts on coupled carbon and water cycles'', {\em Journal of Geophysical Research - Biogeosciences}, doi:10.1029/2011JG001899
-
-\item $^{*}$Franz, T.E., \textbf{Caylor, K.K.}, $^{*}$King, E.G., Nordbotten, J., Celia, M.A., Rodriguez-Iturbe, I, (2012) ``An ecohydrological approach to predicting hillslope-scale vegetation patterns in dryland ecosystems'', {\em Water Resources Research}, doi:10.1029/2011WR010524
-
-\item Turnbull, L., Wilcox, B.P., Belnap, J., Ravi, S., D'Odorico, P., Childers, D., Gwenzi, W., Okin, G., Wainwright, J., \textbf{Caylor, K.K.}, Sankey, T. (2012) ``Understanding the role of ecohydrological feedbacks in ecosystem-state change in drylands'', {\em Ecohydrology}, doi:10.1002/eco.265.
-
-\item $^{*}$Wang, L., D'Odorico, P., Evans, J, Eldridge, T., McCabe, M., \textbf{Caylor, K.K.} (2012) ``Dryland ecohydrology and climate change: critical issues and technical advances'', {\em Hydrology and Earth System Science}, 16, 2585-2603, doi:10.5194/hess-16-2585-2012
-
-\item $^{*}$Wang, L., Zou, C., $^{*}$O'Donnell, F., $^{*}$Good, S.P., $^{*}$Franz, T., Miller, G.R., \textbf{Caylor, K.K.}, Cable, J.M., Bond, B. (2012) ``Characterizing ecohydrological and biogeochemical connectivity across multiple scales: a new conceptual framework,'' {\em Ecohydrology}, doi:10.1002/eco.1187
-
-\item $^{*}$Bhattachan, A., Dintwe, K., Tathlego, M., $^{*}$O'Donnell, F.C.,  \textbf{Caylor, K.K.}, D'Odorico, P., Okin, G.A. (2012) ``Evaluating ecohydrological theories of woody root distribution in the Kalahari'', {\em PLoS One}, 7(3): e33996, doi:10.1371/journal.pone.0033996
-
-\item $^{*}$King, E.G., $^{*}$O'Donnell, F.C., \textbf{Caylor, K.K.} (2012) ``Reframing hydrology education to solve coupled human and environmental problems'', {\em Hydrology and Earth System Science}, doi:10.5194/hess-16-4023-2012
-
-\item $^{*}$Soderberg, K., $^{*}$Good, S.P., $^{*}$Wang, L., \textbf{Caylor, K.K.} (2012) ``Stable isotopes of water vapor in the vadose zone: A review of measurement and modeling techniques'', {\em Vadose Zone Journal}, doi:10.2136/vzj2011.0165
-
-\item $^{*}$Guan, K., Wood, E.F., \textbf{Caylor, K.K.} (2012) ``Characterization of dryland vegetation structure using remote sensing indices'', {\em Remote Sensing of Environment}, doi:10.1016/j.rse.2012.06.005
-
-\item $^{*}$Good, S.P., $^{*}$Soderberg, K., $^{*}$Wang, L., \textbf{Caylor, K.K.} (2012) ``Error estimates in the assessment of the isotopic composition of surface fluxes: A direct comparison of techniques using laser-based water vapor isotope analyzers'', {\em Journal of Geophysical Research - Atmospheres}, 117, D15301, doi:10.1029/2011JD017168
-
-\item $^{*}$Wang, L,  $^{*}$Good, S.P., \textbf{Caylor, K.K.}, Cernusak, L.A. (2012) ``Direct quantification of leaf transpiration isotopic composition'', {\em Agricultural and Forest Meteorology}, doi:10.1016/j.agrformet.2011.10.018
-
-\mbox{\ \ \ \underline{\textbf{2011}}}
-
-\item $^{*}$King, E.G.,  $^{*}$Franz, T.E., \textbf{Caylor, K.K.} (2011) ``Ecohydrological interactions in a two-phase mosaic dryland: implications for regime shifts, resilience, and restoration'', {\em Ecohydrology}, doi:10.1002/eco.260
-
-\item Rodriguez-Iturbe, I.,  \textbf{Caylor, K.K.}, Rinaldo, A. (2011) ``Metabolic principles of river basin organization,'' {\em Proceedings of the National Academy of Sciences}, doi:10.1073/pnas.1107561108
-
-\item  $^{*}$Franz, T.E., $^{*}$King, E.G., \textbf{Caylor, K.K.}, Robinson, D.A. (2011) ``Coupling vegetation organization patterns to soil resource heterogeneity in a central Kenyan dryland using geophysical imagery'', {\em Water Resources Research}, 47, W07531, doi:10.1029/2010WR010127
-
-\item $^{*}$King, E.G., \textbf{Caylor, K.K.} (2011) ``Ecohydrology in practice: Strengths, conveniences, and opportunities'', {\em Ecohydrology},4(4), 608-612, doi: 10.1002/eco.248
-
-\item $^{*}$Good, S.P., \textbf{Caylor, K.K.} (2011) ``Climatological determinants of woody cover in Africa,'' {\em Proceedings of the National Academy of Sciences}, doi:10.1073/pnas.1013100108
-
-\item $^{*}$Franz, T., Nolan, J., Nordbotten, J., \textbf{Caylor, K.K.}, Slayter, L. (2011) ``Quantifying transient soil moisture dynamics using multi-point direct-current resistivity in homogeneous sand,'' {\em Vadose Zone Journal}, vol. 10, doi:10.2136/vzj2010.0031
-
-\mbox{\ \ \ \underline{\textbf{2010}}}
-
-\item $^{*}$Franz, T., \textbf{Caylor, K.K.}, Rodriguez-Iturbe, I., Celia, M. (2010) ``An ecohydrological approach to predicting regional species distribution patterns in dryland ecosystems,'' {\em Advances in Water Resources}, doi:10.1016/ j.advwatres.2009.12.003
-
-\item Manfreda, S., Scanlon, T.M., and \textbf{Caylor, K.K.} (2010) ``On the importance of accurate depiction of infiltration processes on modelled soil moisture and vegetation water stress,'' {\em Ecohydrology}, doi: 10.1002/eco.79
-
-\item $^{*}$King, E.G., \textbf{Caylor, K.K.} (2010) ``Herbivores and mutualistic ants interact to modify tree photosynthesis,'' {\em New Phytologist}, 187, p17-21, doi: 10.1111/j.1469-8137.2010.03286.x
-
-\item $^{*}$Wang, L.,  \textbf{Caylor, K.K.}, Villegas, J.C., Barron-Gafford, G.A.,  Breshears, D.D.,  Huxman, T.E. (2010) ``Partitioning evapotranspiration across gradients of woody plant cover: Assessment of a stable isotope technique,'' {\em Geophys. Res. Lett.}, 37, L09401, doi:10.1029/2010GL043228
-
-\item Reis-O'Halloran, L., H.H. Shugart, $^{*}$L. Wang, \textbf{Caylor, K.K.}, Ringrose, S. (2010) ``Nutrient limitation on above-ground grass production in four savanna types along the Kalahari Transect,'' {\em Journal of Arid Environments}, 74(2), p. 284-290, doi:10.1016/j.jaridenv.2009.08.012
-
-\item $^{*}$Wang, L., P. D'Odorico, L. Ries, \textbf{Caylor, K.K.}, and S. Macko (2010) ``Combined effects of soil moisture and nitrogen availability on grass productivity in African savannas,'' {\em Plant \& Soil}, doi:10.1007/s11104-009-0085-z
-
-\mbox{\ \ \ \underline{\textbf{2009}}}
- 
-\item \textbf{Caylor, K.K.}, T.M. Scanlon, I. Rodriguez-Iturbge (2009) ``Ecohydrological optimization of pattern and processes in water-limited ecosystems: A tradeoff-based hypothesis,'' \emph{Water Resources Research}, 45, W08407, doi:10.1029/2008WR007230
-
-\item $^{*}$Wang, L., \textbf{Caylor, K.K.}, and D. Dragoni (2009) ``On the calibration of continuous, high-precision $\delta^{18}$O and $\delta^{2}$H measurements using an off-axis integrated cavity output spectrometer,''  \emph{Rapid Communications in Mass Spectrometry}, Vol. 23(14), pp. 530-536, doi:10.1002/rcm3905
-
-\item \textbf{Caylor, K.K.}, D. Dragoni (2009) ``On the structural and environmental determinants of sap velocity: Part I, Methodological development,''  \emph{Agricultural and Forest Meteorology}, doi:10.1016/ j.agrformet.2008.10.006
-
-\item Dragoni, D., \textbf{Caylor, K.K.}, and H. Schmid (2009) ``On the structural and environmental determinants of sap velocity: Part II, Observational application,'' {\em Agricultural and Forest Meteorology}, \\ doi:10.1016/j.agrformet.2008.10.010
-
-\item $^{*}$Wang, L., G.S. Okin, \textbf{ Caylor, K.K.}, and S. Macko (	2009) ``Spatial heterogeneity and sources of soil carbon in southern African savannas,'' {\em Geoderma}, Vol. 149, pp. 402-408, doi:10.1016/j.geoderma.2008.12.014
-
-\mbox{\ \ \ \underline{\textbf{2008}}}
-
-\item Okin, G.S., N. Mladenov, D. Cassel, G.S. Okin, {\bf K.K. Caylor}, and S. Ringrose (2008) ``Spatial patterns of soil nutrients in two contrasting southern African savannas,''  \emph{JGR-Biogeosciences}, Vol 113, G02011, doi:10.1029/2007JG000584
-
-\mbox{\ \ \ \underline{\textbf{2007}}}
-
-\item Scanlon, TM, \textbf{K.K. Caylor}, I. Rodriguez-Iturbe, S. Levin (2007) ``Positive feedbacks promote power-law clustering of Kalahari vegetation,''  \emph{Nature}, 449:209-212, doi:10.1038/nature06060
-
-\item Sambatti, J., \textbf{K.K. Caylor} (2007) ``When is breeding for drought tolerance optimal if drought is random?'' \emph{New Phytologist}, 175(1):70-80, doi: 10.1111/j.1469-8137.20007.02067.
-
-\item D'Odorico, P., \textbf{K.K. Caylor}, G.S. Okin, T.M. Scanlon. (2007) ``On soil moisture-vegetation feedbacks and their possible effects in dryland plant ecosystems,'' \emph{JGR-Biogeosciences}, Vol 112, G04010, doi:10.1029/2006JG000379.
-
-\item H\'ely, C., \textbf{K.K. Caylor}, P.R. Dowty, S. Alleaume, R.J. Swap, H.H. Shugart, C.O. Justice (2007) ``A temporally explicit Production Efficiency Model for fuel load allocation in southern Africa,'' \emph{Ecosystems}, doi: 10.1007/s10021-007-9082-3.
-
-\item Ferreira, J.N., M. Bustamante, D.C. Garcia-Montiel, \textbf{K.K. Caylor}, E. A. Davidson (2007) ``Spatial variation in vegetation structure coupled to plant available water at landscape scales in a Brazilian savanna,'' \emph{Oecologia}, 153(2):417-430, doi: 10.1007/ s00442-007-0747-6.
-
-\underline{\textbf{2006}}
-
-\item \textbf{Caylor, K.K.}, P. D'Odorico, I. Rodriguez-Iturbe (2006) ``On the ecohydrological organization of spatially heterogeneous semi-arid landscapes.'' \emph{Water Resources Research}, 42(7), W07424, doi:10.1029/ 2005WR004683.
-
-\underline{\textbf{2005}}
-\item \textbf{Caylor, K.K.}, S. Manfreda, I. Rodriguez-Iturbe (2005) ``On the coupled geomorphological and ecohydrological organization of river basins.'' \emph{Advances in Water Resources}, 28(1):69-86.
-
-\item Scanlon, T.M., \textbf{K.K. Caylor}, S. Manfreda, S. Levin, I. Rodriguez-Iturbe (2005) ``Dynamic response of grass cover to rainfall variability: Implications for the function and persistence of savanna ecosystems" \emph{Advances in Water Resources}, 28(3):291-301.
-
-\item \textbf{Caylor, K.K.}, H.H. Shugart, I. Rodriguez-Iturbe (2005) ``Tree canopy effects on simulated water stress in southern African savannas.'' \emph{Ecosystems}, 8(1):17-32.
-
-\item Sankaran, M. Hanan, N., Scholes, R.J., and 24 others including \textbf{K.K. Caylor} (2005) ``Determinants of woody cover in African savannnas: A continental scale analysis'' \emph{Nature}, doi:10.1038/nature04070.
-
-\underline{\textbf{2004}}
-
-\item \textbf{Caylor, K.K.}, P.R. Dowty, H.H. Shugart, S. Ringrose (2004). ``Relationship between small-scale structural variability and simulated productivity across a regional moisture gradient in southern Africa.'' \emph{Global Change Biology}, 10(3):374-382.
-
-\item Privette, J., Y. Tian, G. Roberts, R.J. Scholes, Y. Wang, \textbf{K.K. Caylor}, M. Mukelabai (2004). ``Vegetation structure characteristics and relationships of Kalahari woodlands and savannas.'' \emph{Global Change Biology}, 10(3):281-291.
-
-\item \textbf{Caylor, K.K.}, H.H. Shugart (2004) ``Simulated productivity of heterogeneous landscape patches in southern African savanna landscapes using a canopy productivity model.'' \emph{Landscape Ecology}, 19(4):401-415.
-
-\item \textbf{Caylor, K.K.}, T.M. Scanlon, I. Rodriguez-Iturbe (2004) ``Feasible optimality of vegetation patterns in river basins.'' \emph{Geophysical Research Letters}, 31(13):L13502.
-
-\item Pereira, J.M.C., B. Mota, J.L. Privette, \textbf{K.K. Caylor}, J.M.N. Silva, A.C.L. S\`a and W. Ni-Meister (2004) ``A simulation analysis of the detectability of understory burns in miombo woodlands'' \emph{Remote Sensing of Environment}, 93(3):296-310.
-
-\underline{\textbf{2003}}
-
-\item \textbf{Caylor, K.K.}, H.H. Shugart, and T.M. Smith (2003). ``Tree spacing along the Kalahari Transect in southern Africa.'' \emph{Journal of Arid Environments}, 54(2):281-296.
-
-\item H\'ely, C., \textbf{Caylor, K.}, S. Alleume, R.J. Swap, and H.H. Shugart (2003). ``Release of gaseous and particulate carbonaceous compounds from biomass burning during the SAFARI 2000 dry season field campaign.'' \emph{Journal of Geophysical Research - Atmospheres}, 108(D13):8740-8750.
-
-\item H\'ely, C., P.R. Dowty, S. Alleaume, \textbf{K.K. Caylor}, S. Koronotzi, R.J. Swap, H.H. Shugart, and C.O. Justice (2003). ``Regional fuel load for two climatically contrasting years in southern Africa.'' \emph{Journal of Geophysical Research - Atmospheres}, 108(D13):8475-8491.
-
-\item Porporato, A., F. Laio, L. Ridolfi, \textbf{K.K. Caylor}, and I. Rodriguez-Iturbe (2003). ``Soil moisture and plant stress dynamics along the Kalahari precipitation gradient.'' \emph{Journal of Geophysical Research - Atmospheres}, 108(D3):4127-4134.
-
-
-\mbox{\ \ \ \underline{\textbf{2002}}}
-
-
-\item Otter, L.B., R.J. Scholes, P.R. Dowty, J. Privette, \textbf{K.K. Caylor}, S. Ringrose, M. Mukelabai, P. Frost, N. Hanan, O. Totolo, and E.M. Veenendaal (2002) ``The Southern African Regional Science Initiative (SAFARI 2000): Wet season campaigns.'' \emph{South Africa Journal of Science}, 98(3/4):131-140. 
-
-\item Scanlon, T.M., J.D. Albertson, \textbf{K.K. Caylor} and C. Williams (2002). ``Determining land surface fractional cover from NDVI and rainfall time series for a savanna ecosystem.'' \emph{Remote Sensing of Environment}, 82(2-3):376-388.
-
-\item Scholes, R.J., P.R. Dowty, \textbf{K. Caylor}, D.A.B. Parsons, P.G.H Frost, and H.H. Shugart (2002). ``Trends in savanna structure and composition on an aridity gradient in the Kalahari.'' \emph{Journal of Vegetation Science}, 13(3):419-428.
-\end{etaremune}
- 
-\vspace*{.1in}
-\textsc{\underline{Book Chapters}}
-\vspace*{.1in}
-
-%%\begin{revnumerate}[\value{totalnumchapters}]
-%%\begin{itemize}
-\begin{etaremune}
-
-\item Dell'Angelo, J., McCord, P.F., Baldwin, E., Cox, M.E., Gower, D., \textbf{K.K. Caylor}, Evans, T.P. (2014) ``Multilevel governance of irrigation systems and adaptation to climate change in Kenya'' In: Bhaduri, A., Bogardi, J., Leentvaar, J., Marx, S. (eds.) The Global Water System in the Anthropocene, Springer International. pp. 323-341.
-
-\item \textbf{K.K. Caylor}, Okin, G.S., Turnbull, L., Wainwright, J., Wiegand, T., Franz, T.E., Parsons, A.J. (2014) ``Integrating short- and long-range processes into models: The emergence of pattern'' In: Mueller, E.N., Wainwright, J., Parsons, A.J., Turnbull, L. (eds.) Patterns of Land Degradation in Drylands, Springer. pp. 141-167.
-
-\item Dragoni, D, \textbf{K.K. Caylor} (2009) ``Decoupling structural and environmental determinants of sap velocity'' In: Acta Horticulturae, Proceedings of the 7th International Workshop on Sap Flow, Seville, Spain.
-
-\item \textbf{K.K. Caylor}, T.M. Scanlon, I. Rodriguez-Iturbe (2007) ``Ecohydrological optimization of patterns and processes in water-limited ecosystems'' In: Water and the Environment: Proceedings of the Workshop in the Vatican Academy of Sciences, Nov. 2005. Proceedings of the Vatican Academy of Sciences, Vatican Press.
-
-\item Shugart, H.H., \textbf{K.K. Caylor}, C. H\'ely, R.J. Swap, P.R. Dowty (2006) ``Dynamic change in the woodland and savanna ecosystems of sub-tropical Africa.'' In: W. Laurence and C. Peres (eds.) Emerging Threats to Tropical Forests. University of Chicago Press.
-
-\item \textbf{Caylor K.K.} and H.H. Shugart (2006) ``Pattern and process in savanna ecosystems.'' In: P. D'Odorico and A. Porporato (eds.) Dryland Ecohydrology. Springer.
-
-\item \textbf{Caylor, K.K.}, I. Rodriguez-Iturbe (2004) ``Coupling ecohydrological patterns and processes in semi-arid landscapes.'' In: Proceedings of the British Hydrological Society's International Conference on Hydrology: Science \& Practice for the 21$^{st}$ Century. 
-
-\item Dowty, P.R., \textbf{K. Caylor}, H.H. Shugart, W.R. Emanuel (2000) ``Approaches for the estimation of primary productivity and vegetation structure in the Kalahari region.'' In: Ringrose, S. and R. Chanda (eds.) Towards Sustainable Natural Resource Management in the Kalahari Region. University of Botswana Press, Gaborone, Botswana.
-
-%\end{itemize}
-%\end{revnumerate}
-\end{etaremune}
-
-
-\newpage
 \vspace*{.1in}
 \textsc{\underline{Conference \& Workshop Presentations}}
 
 { \small $^{*}$ indicates current or former lab member}
+
 { \small $^{+}$ indicates current or former undergraduate lab member}
 
 \vspace*{.1in}
@@ -1086,45 +624,45 @@ Ecohydrological dynamics, Isotope ecohydrology, Coupled natural-human systems
 %\end{revnumerate}
 \end{etaremune}
 
-
-\textsc{\underline{Graduate Committees}}
-\begin{longtable}{l | p{1in} | p{0.7in} | p{1.4in} | p{.5in} | p{1.8in} }
-
-\textbf{Year} & \textbf{Institution} & \textbf{Role} & \textbf{Student} & \textbf{Degree} & \textbf{Current Position} 
-\endfirsthead 
-
-\multicolumn{5}{l}%
-{\hspace{.1in} \textsc{\underline{Graduate Committees}}  -- continued 
-\vspace*{.1in} } \\ 
-%\textbf{Year} & \textbf{Degree} & \textbf{Role} & \textbf{Student} & \textbf{Current Position} 
- \endhead
--	& UCSB (Bren) & Co-Advisor & Anna Boser & PhD & - \\
--	& UCSB (Geog) & Co-Advisor & Rachel Green & PhD & - \\
-- 	& UCSB (Geog) & Advisor & Bryn Morgan & PhD & - \\
- - 	& UCSB (Geog) & Advisor & Natasha Krell & PhD & - \\
--	& UCSB (EEMB) & Committee Member & Elizabeth Forbes & PhD & - \\
-- 	& UCSB (Geog) & Committee Member & Chris Kibler & PhD & - \\
- - 	& UCSB (Bren) & Committee Member & Christopher Heckman & PhD & - \\
- -	& UCSB (Geog) & Committee Member & Mike Johnson & PhD & - \\
-- 	& UCSB (Geog) & Committee Member & Susan Meerdink & PhD & - \\
--	& U of Florida & Committee Member & Lory Willard & PhD & - \\
-2020 & University of Copenhagen & Assessment Committee Member & Christin Abel & PhD & - \\
-2020  & UCSB (Geog) & Advisor & Cascade Tuholske & PhD & - \\
-2020  & Princeton U. & Advisor & Drew Gower & PhD & - \\ 
-2020 & UCSB (Geog) & Committee Member & Sara Lafia & PhD & - \\
-2020 & UCSB (Geog) & Committee Member & Fernanda Ribeiro & PhD & - \\
-2020 & UCSB (Geog) & Advisor & Ryan Avery & MA & - \\
-2020  & Princeton U.& Advisor & Keita DeCarlo & PhD & - \\
-2017  & Princeton U. & Advisor & Stephanie Debats & PhD & Uber, Inc. \\
-2017  & Princeton U. & Advisor & Cynthia Gerlein-Safdi & PhD & LLNL \\
-2015 & Princeton U. & Advisor & Hilary Wayland & MSE & Ramboll-Environ, Inc. \\ 
-2013 & Princeton U. & Advisor & Stephen Good & PhD & Asst. Prof., Oregon St. U. \\
-2013 & Princeton U. & Advisor & Frances O'Donnell & PhD & Asst. Prof., Auburn U. \\
-2013 & Princeton U. & Committee Member & Kaiyu Guan & PhD & Asst. Prof., U. of Illinois, Urbana-Champaign \\
-2012 & Princeton U. & Committee Member & Megan Konar & PhD & Assoc. Prof., U. of Illinois, Urbana-Champaign \\
-2011 & Princeton U. & Advisor & Trenton Franz & PhD & Assoc. Prof., U. of Nebraska \\ 
-\end{longtable}
-
+%
+%\textsc{\underline{Graduate Committees}}
+%\begin{longtable}{l | p{1in} | p{0.7in} | p{1.4in} | p{.5in} | p{1.8in} }
+%
+%\textbf{Year} & \textbf{Institution} & \textbf{Role} & \textbf{Student} & \textbf{Degree} & \textbf{Current Position} 
+%\endfirsthead 
+%
+%\multicolumn{5}{l}%
+%{\hspace{.1in} \textsc{\underline{Graduate Committees}}  -- continued 
+%\vspace*{.1in} } \\ 
+%%\textbf{Year} & \textbf{Degree} & \textbf{Role} & \textbf{Student} & \textbf{Current Position} 
+% \endhead
+%-	& UCSB (Bren) & Co-Advisor & Anna Boser & PhD & - \\
+%-	& UCSB (Geog) & Co-Advisor & Rachel Green & PhD & - \\
+%- 	& UCSB (Geog) & Advisor & Bryn Morgan & PhD & - \\
+% - 	& UCSB (Geog) & Advisor & Natasha Krell & PhD & - \\
+%-	& UCSB (EEMB) & Committee Member & Elizabeth Forbes & PhD & - \\
+%- 	& UCSB (Geog) & Committee Member & Chris Kibler & PhD & - \\
+% - 	& UCSB (Bren) & Committee Member & Christopher Heckman & PhD & - \\
+% -	& UCSB (Geog) & Committee Member & Mike Johnson & PhD & - \\
+%- 	& UCSB (Geog) & Committee Member & Susan Meerdink & PhD & - \\
+%-	& U of Florida & Committee Member & Lory Willard & PhD & - \\
+%2020 & University of Copenhagen & Assessment Committee Member & Christin Abel & PhD & - \\
+%2020  & UCSB (Geog) & Advisor & Cascade Tuholske & PhD & - \\
+%2020  & Princeton U. & Advisor & Drew Gower & PhD & - \\ 
+%2020 & UCSB (Geog) & Committee Member & Sara Lafia & PhD & - \\
+%2020 & UCSB (Geog) & Committee Member & Fernanda Ribeiro & PhD & - \\
+%2020 & UCSB (Geog) & Advisor & Ryan Avery & MA & - \\
+%2020  & Princeton U.& Advisor & Keita DeCarlo & PhD & - \\
+%2017  & Princeton U. & Advisor & Stephanie Debats & PhD & Uber, Inc. \\
+%2017  & Princeton U. & Advisor & Cynthia Gerlein-Safdi & PhD & LLNL \\
+%2015 & Princeton U. & Advisor & Hilary Wayland & MSE & Ramboll-Environ, Inc. \\ 
+%2013 & Princeton U. & Advisor & Stephen Good & PhD & Asst. Prof., Oregon St. U. \\
+%2013 & Princeton U. & Advisor & Frances O'Donnell & PhD & Asst. Prof., Auburn U. \\
+%2013 & Princeton U. & Committee Member & Kaiyu Guan & PhD & Asst. Prof., U. of Illinois, Urbana-Champaign \\
+%2012 & Princeton U. & Committee Member & Megan Konar & PhD & Assoc. Prof., U. of Illinois, Urbana-Champaign \\
+%2011 & Princeton U. & Advisor & Trenton Franz & PhD & Assoc. Prof., U. of Nebraska \\ 
+%\end{longtable}
+%
 
 %\begin{longtable}{p{6.75in}}
 %\endfirsthead

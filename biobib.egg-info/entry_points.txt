@@ -1,0 +1,2 @@
+[nbdev]
+biobib = biobib._modidx:d

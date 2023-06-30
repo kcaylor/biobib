@@ -1,4 +1,7 @@
-Postdoc,Start Year,End Year,Institution,Department,Title,Affiliation,Organization,Eval
-Marc Mayes,2016,2020,UCSB,Geography,,,,1
-Farai Kaseke,2018,,UCSB,Geography,,,,1
-Marcus Thompson,2019,,UCSB,NCEAS,,,,1
+Postdoc,Start Year,End Year,Institution,Department,Title,Affiliation,Organization,Author,Eval
+Lixin Wang,2011,2013,Princeton,Civil and Environmental Engineering,Associate Professor,IUPUI,,"Wang, L.",0
+Keir Soderberg,2010,2012,Princeton,Civil and Environmental Engineering,,,,"Soderberg, K.",0
+Elizabeth King,2009,2011,Princeton,Civil and Environmental Engineering,Associate Professor,University of Georgia,Department of Ecology,"King, E.",0
+Marc Mayes,2016,2020,UCSB,Geography,,,,"Mayes, M.",1
+Farai Kaseke,2018,,UCSB,Geography,,,,"Kaseke, F.",1
+Marcus Thompson,2019,,UCSB,NCEAS,,,,"Thompson, M.",1

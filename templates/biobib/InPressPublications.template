@@ -21,7 +21,12 @@
 \hline \hline
 \endlastfoot
 
+\BLOCK{if items|length > 1}
 \BLOCK{for publication in items}
     \VAR{publication|make_row}
 \BLOCK{endfor}
+\BLOCK{ else }
+    None Provided.
+\BLOCK{ endif }
+
 \end{longtable}

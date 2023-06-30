@@ -1,0 +1,15 @@
+% CV Lectures Table
+% Created on \VAR{created}
+
+\textsc{\underline{Invited Seminars \& Presentations}}
+
+\begin{longtable}{p{.25in} r p{5.in}}
+
+\endfirsthead
+\multicolumn{3}{l}{\hspace{.1in} \textsc{\underline{Invited Seminars \& Presentations }}  -- continued
+\vspace*{.1in} }  \endhead
+
+\BLOCK{for lecture in items|reverse}
+\VAR{lecture.Year} & \VAR{lecture.Role|tex_escape}, & \VAR{lecture.Venue|tex_escape}, (\VAR{lecture.Place|tex_escape}) \\
+\BLOCK{endfor}
+\end{longtable}

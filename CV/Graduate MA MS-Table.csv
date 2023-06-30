@@ -1,5 +1,5 @@
-Degree,Student,Year,Institution,Department,Role,Title,Affiliation,Organization,Eval
-MA,Ryan Avery,2020,UCSB,Geography,Chair,Analyst,,Development Seed,1
-MSE,Hilary (Wayland) Cannarella,2015,Princeton University,Civil & Environmental Engineering,Chair,Senior Consultant,Ramboll,,0
-MS,Abinash Bhattachan,2008,Indiana University,Environmental Sciences,Committee Member,Assistant Professor,,CalState Fullerton,0
-MS,Garth Linder,2009,Indiana University,Geography,Committee Member,Research Staff,,USGS,0
+Degree,Student,Year,Institution,Department,Role,Title,Affiliation,Organization,Author,Eval
+MA,Ryan Avery,2020,UCSB,Geography,Chair,Analyst,,Development Seed,"Avery, R.",1
+MSE,Hilary (Wayland) Cannarella,2015,Princeton University,Civil & Environmental Engineering,Chair,Senior Consultant,Ramboll,,"Wayland, H.",0
+MS,Abinash Bhattachan,2008,Indiana University,Environmental Sciences,Committee Member,Assistant Professor,,CalState Fullerton,"Bhattachan, A.",0
+MS,Garth Linder,2009,Indiana University,Geography,Committee Member,Research Staff,,USGS,"Linder, G.",0

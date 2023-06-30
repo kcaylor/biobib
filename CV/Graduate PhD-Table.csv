@@ -1,27 +1,27 @@
-Degree,Student,Year,Institution,Department,Role,Title,Affiliation,Organization,Eval
-PhD,Trenton Franz,2011,Princeton University,Civil & Environmental Engineering,Chair,Associate Professor,School of Natural Resources,University of Nebraska,0
-PhD,Megan Konar,2012,Princeton University,Civil & Environmental Engineering,Committee Member,Associate Professor,Department of Civil and Environmental Engineering,"University of Illinois, Urbana-Champaign",0
-PhD,Kaiyu Guan,2013,Princeton University,Civil & Environmental Engineering,Committee Member,Assistant Professor,Department of Geography,"University of Illinois, Urbana-Champaign",0
-PhD,Frances O’Donnell,2013,Princeton University,Civil & Environmental Engineering,Chair,Assistant Professor,Department of Civil and Environmental Engineering,Auburn University,0
-PhD,Stephen Good,2013,Princeton University,Civil & Environmental Engineering,Chair,Assistant Professor,Department of Biological and Ecological  Engineering,Oregon State University,0
-PhD,Cynthia Gerlein-Safdi,2017,Princeton University,Civil & Environmental Engineering,Chair,Assistant Professor,Department of Civil and Environmental Engineering,"University of California, Berkeley",0
-PhD,Stephanie Debats,2017,Princeton University,Civil & Environmental Engineering,Chair,Machine Learning Engineer,Augmented Reality Group,Google,0
-PhD,Drew Gower,2020,Princeton University,Civil & Environmental Engineering,Chair,Postdoctoral Associate,Earth Systems Science Interdisciplinary Center,University of Maryland,1
-PhD,Keita DeCarlo,2019,Princeton University,Civil & Environmental Engineering,Chair,Researcher,National Minerals Information Center,USGS,1
-PhD,Cascade Tuholske,2020,UCSB,Geography,Chair,Earth Institute Postdoctoral Research Scientist,Center for International Earth Science Information Network,Columbia University,1
-PhD,Sara Lafia,2020,UCSB,Geography,Committee Member,Postdoctoral Fellow,ICPSR,University of Michigan,1
-PhD,Fernanda Riberio,2020,UCSB,Geography,Committee Member,Postdoctoral Researcher,Conservation Ecology Center,Smithsonian National Zoo and Conservation Center,1
-PhD,Christin Abel,2020,University of Copenhagen,Geography,Assessment Committee Member,Postdoctoral Researcher,,University of Copenhagen,1
-PhD,Natasha Krell,2021,UCSB,Geography,Chair,Research Scientist,,Department of Defense,1
-PhD,Susan Meerdink,2018,UCSB,Geography,Committee Member,Assistant Professor,Department of Geographical and Sustainability Sciences,University of Iowa,1
-PhD,Mike Johnson,2021,UCSB,Geography,Committee Member,Water Resource Engineer,National Water Center,NOAA,1
-PhD,Chris Heckman,In Progress,UCSB,Bren,Committee Member,,,,1
-PhD,Elizabeth Forbes,2021,UCSB,"Ecology, Evolution, and Marine Ecology",Committee Member,Postdoctoral Fellow,,Yale University,1
-PhD,Chris Kibler,In Progress,UCSB,Geography,Committee Member,,,,1
-PhD,Bryn Morgan,In Progress,UCSB,Geography,Chair,,,,1
-PhD,Rachel Green,In Progress,UCSB,Geography,Co-Chair,,,,1
-PhD,Anna Boser,In Progress,UCSB,Bren School of Environmental Science & Management,Co-Chair,,,,1
-PhD,Kristina Fauss,In Progress,UCSB,Geography,Chair,,,,1
-PhD,Ling Cai,In Progress,UCSB,Geography,Committee Member,,,,1
-PhD,Lory Willard,In Progress,University of Florida,Agricultural & Biological Engineering,Committee Member,,,,1
-PhD,Pierre Lochin,In Progress,University of Lyon,CNRS,Committee Member,,,,1
+Degree,Student,Year,Institution,Department,Role,Title,Affiliation,Organization,Author,Eval
+PhD,Trenton Franz,2011,Princeton University,Civil & Environmental Engineering,Chair,Associate Professor,School of Natural Resources,University of Nebraska,"Franz, T.",0
+PhD,Megan Konar,2012,Princeton University,Civil & Environmental Engineering,Committee Member,Associate Professor,Department of Civil and Environmental Engineering,"University of Illinois, Urbana-Champaign","Konar, M.",0
+PhD,Kaiyu Guan,2013,Princeton University,Civil & Environmental Engineering,Committee Member,Assistant Professor,Department of Geography,"University of Illinois, Urbana-Champaign","Guan, K.",0
+PhD,Frances O’Donnell,2013,Princeton University,Civil & Environmental Engineering,Chair,Assistant Professor,Department of Civil and Environmental Engineering,Auburn University,"O’Donnell, F.",0
+PhD,Stephen Good,2013,Princeton University,Civil & Environmental Engineering,Chair,Assistant Professor,Department of Biological and Ecological  Engineering,Oregon State University,"Good, S.",0
+PhD,Cynthia Gerlein-Safdi,2017,Princeton University,Civil & Environmental Engineering,Chair,Assistant Professor,Department of Civil and Environmental Engineering,"University of California, Berkeley","Gerlein-Safdi, C.",0
+PhD,Stephanie Debats,2017,Princeton University,Civil & Environmental Engineering,Chair,Machine Learning Engineer,Augmented Reality Group,Google,"Debats, S.",0
+PhD,Drew Gower,2020,Princeton University,Civil & Environmental Engineering,Chair,Postdoctoral Associate,Earth Systems Science Interdisciplinary Center,University of Maryland,"Gower, D.",1
+PhD,Keita DeCarlo,2019,Princeton University,Civil & Environmental Engineering,Chair,Researcher,National Minerals Information Center,USGS,DeCarlo. K.,1
+PhD,Cascade Tuholske,2020,UCSB,Geography,Chair,Earth Institute Postdoctoral Research Scientist,Center for International Earth Science Information Network,Columbia University,"Tuholske, C.",1
+PhD,Sara Lafia,2020,UCSB,Geography,Committee Member,Postdoctoral Fellow,ICPSR,University of Michigan,"Lafia, S.",1
+PhD,Fernanda Riberio,2020,UCSB,Geography,Committee Member,Postdoctoral Researcher,Conservation Ecology Center,Smithsonian National Zoo and Conservation Center,"Ribeiro, F.",1
+PhD,Christin Abel,2020,University of Copenhagen,Geography,Assessment Committee Member,Postdoctoral Researcher,,University of Copenhagen,"Abel, C.",1
+PhD,Natasha Krell,2021,UCSB,Geography,Chair,Research Scientist,,Department of Defense,"Krell, N.",1
+PhD,Susan Meerdink,2018,UCSB,Geography,Committee Member,Assistant Professor,Department of Geographical and Sustainability Sciences,University of Iowa,"Meerdink, S.",1
+PhD,Mike Johnson,2021,UCSB,Geography,Committee Member,Water Resource Engineer,National Water Center,NOAA,"Johnson, M.",1
+PhD,Chris Heckman,In Progress,UCSB,Bren,Committee Member,,,,"Heckman, C.",1
+PhD,Elizabeth Forbes,2021,UCSB,"Ecology, Evolution, and Marine Ecology",Committee Member,Postdoctoral Fellow,,Yale University,"Forbes, E.",1
+PhD,Chris Kibler,In Progress,UCSB,Geography,Committee Member,,,,"Kibler, C.",1
+PhD,Bryn Morgan,In Progress,UCSB,Geography,Chair,,,,"Morgan, B.",1
+PhD,Rachel Green,In Progress,UCSB,Geography,Chair,,,,"Green, R.",1
+PhD,Anna Boser,In Progress,UCSB,Bren School of Environmental Science & Management,Co-Chair,,,,"Boser, A.",1
+PhD,Kristina Fauss,In Progress,UCSB,Geography,Chair,,,,"Fauss, K.",1
+PhD,Ling Cai,In Progress,UCSB,Geography,Committee Member,,,,"Cai, L.",1
+PhD,Lory Willard,In Progress,University of Florida,Agricultural & Biological Engineering,Committee Member,,,,"Willard, L.",1
+PhD,Pierre Lochin,In Progress,University of Lyon,CNRS,Committee Member,,,,"Lochin, P.",1
