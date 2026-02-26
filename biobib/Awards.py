@@ -4,28 +4,30 @@
 __all__ = ['award_cv_template', 'Awards']
 
 # %% ../nbs/05_Awards.ipynb 2
-from .table import Table, sh
-from .sheet import Sheet
+from .table import Table
+from .doc import Doc, NumbersDoc
 from nbdev import show_doc
 import pandas as pd
+from fastcore.foundation import patch
 
 # %% ../nbs/05_Awards.ipynb 5
-award_cv_template = r'''% CV Awards Table
-% Created on \VAR{created}
+award_cv_template = r'''% CV Awards Table (Refined)
+% Adjusted to fix Overfull \hbox warnings
 
 \textsc{\underline{Awards \& Honors}}
+\vspace*{.1in}
 
-\begin{longtable}{p{.25in} p{5.5in} }
+\renewcommand{\arraystretch}{1.2} % improve vertical spacing
+\begin{longtable}{l p{5.5in}}
 
 \endfirsthead
-\multicolumn{2}{l}{\hspace{.1in} \textsc{\underline{Awards \& Honors }}  -- continued
+\multicolumn{2}{l}{\hspace{.1in}\textsc{\underline{Awards \& Honors}} -- continued
 \vspace*{.1in} }  \endhead
 
 \BLOCK{for award in items|reverse}
-\VAR{award.Year} & \VAR{award.Honor|tex_escape}, \VAR{award.Organization|tex_escape} \\
+\VAR{award.Year|to_int} & \VAR{award.Honor|tex_escape}, \VAR{award.Organization|tex_escape} \\
 \BLOCK{endfor}
 \end{longtable}
-
 '''
 
 
@@ -36,15 +38,15 @@ class Awards(Table):
     """
     def __init__(
             self,
-            sheet:Sheet=None, # Google sheet object
+            doc:Doc=None, # Doc object or NumbersDoc object
             worksheet:str='Awards',   # worksheet name in google sheet
             csv_file:str=None, # optional csv file (if using csv files) 
-            table_name:str='Awards and Honors', # name of table
+            table_name:str='Awards & Honors', # name of table
             cumulative:bool=True, # Is this table cumulative? 
             template=award_cv_template # template content
     ):
         super().__init__(
-            sheet=sheet,
+            doc=doc,
             worksheet=worksheet, 
             table_name=table_name,
             csv_file=csv_file, 

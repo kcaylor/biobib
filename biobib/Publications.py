@@ -2,14 +2,20 @@
 
 # %% auto 0
 __all__ = ['publication_types', 'publication_biobib_template', 'max_author', 'max_editor', 'author_cols', 'editor_cols',
-           'decorate_dict', 'publication_cv_template']
+           'decorate_dict', 'publication_cv_template', 'WEB_DIR', 'Publications', 'InPress', 'Submitted']
 
 # %% ../nbs/04_Publications.ipynb 2
-from .table import Table, sh, tex_escape, colonify, to_int
-from .sheet import Sheet
+from .table import Table, tex_escape, colonify, to_int
+from .doc import Doc, NumbersDoc
 from nbdev import show_doc
 import pandas as pd
 import numpy as np
+
+# %% ../nbs/04_Publications.ipynb 3
+from fastcore.test import *
+from fastcore.test import *
+from fastcore.basics import *
+from fastcore.foundation import *
 
 # %% ../nbs/04_Publications.ipynb 4
 publication_types = {
@@ -64,7 +70,7 @@ max_editor = 4
 author_cols = ['A' + str(i+1) for i in range(max_author)]
 editor_cols = ['E' + str(i+1) for i in range(max_editor)]
 
-# %% ../nbs/04_Publications.ipynb 10
+# %% ../nbs/04_Publications.ipynb 11
 decorate_dict = {
     'Undergrad Author': "-UUUU-",
     'Visitor Author': "-VVVV-",
@@ -73,14 +79,221 @@ decorate_dict = {
     'Postdoctoral Advisee': "-PPPP-"
 }
 
-# %% ../nbs/04_Publications.ipynb 13
+# %% ../nbs/04_Publications.ipynb 12
+class Publications(Table):
+    """ 
+    A Publication class of Table for use in generating biobibs and CVs 
+    """
+    def __init__(
+            self,
+            doc:Doc=None, # Google sheet object
+            worksheet:str='Publications', # worksheet name in google sheet
+            csv_file:str=None, # optional csv file (if using csv files) 
+            category:str='P',  # type of service (P = Published, A = In Press, R = In Review)
+            table_name:str=None, # Will be determined from category.
+            kind=None, # kind of publication (e.g., journal article, book chapter, etc.)
+            bold_author:bool=False, # Should the PI author be bolded?
+            decorate_groups:bool=False, # Should group-affiliated authors be indicated?
+            cumulative:bool=True, # Is this table cumulative? 
+            template=publication_biobib_template # default template content
+    ):
+        filters = {
+            'make_row': self.make_row,
+            'make_citation': self.make_citation,
+            'doi': self.doi,
+            'doi_link': self.doi_link,
+            'href': self.href
+        }
+        super().__init__(
+            doc=doc,
+            worksheet=worksheet, 
+            table_name=table_name,
+            csv_file=csv_file, 
+            template=template,
+            filters=filters)
+        self.cumulative = True if cumulative else False
+        self.kind = kind
+        self.bold_author = bold_author
+        self.decorate_groups = decorate_groups
+        self.category = category
+        self.df = self.clean_df()
+    
+    def category_lookup(self, category):
+        Categories = {
+            'RA': 'Refereed Article',
+            'CA': 'Conference Abstract',
+            'BC': 'Refereed Book Chapter',
+            'CP': 'Refereed Conference Proceedings'
+        }
+        return Categories[category]
+    
+    def doi(self, this_doi):
+        if this_doi is np.nan:
+            return ""
+        else:
+            return "-DOI_START-{doi}-DOI_END-.".format(doi=this_doi)
+
+    def href(self, this_href, text="[pdf]"):
+        if this_href is np.nan:
+            return ""
+        else:
+            return "\\href{{{href}}}{{{text}}}".format(
+                href=this_href, text=text)
+
+    def doi_link(self, this_doi):
+        if this_doi is np.nan:
+            return ""
+        else:
+            this_href = "https://doi.org/{doi}".format(doi=tex_escape(str(this_doi)))
+            text = "doi:{doi}".format(doi=tex_escape(str(this_doi).rstrip()))
+            return "\\href{{{href}}}{{{text}}}".format(href=this_href, text=text)
+
+    def make_author_list(self, row):
+        # We're dealing with dict now, not a pd.Series...
+        author_list = pd.Series(
+            pd.Series(row)[author_cols].fillna('').values.tolist()
+        )
+        author_list = author_list[author_list.apply(len) > 0]
+        return author_list.tolist()
+
+    def make_row(self, row):
+        if row['Kind'] == 'RA':
+            return self.make_article(row)
+        elif row['Kind'] == 'BC':
+            return self.make_chapter(row)
+        elif row['Kind'] == 'CP':
+            return self.make_chapter(row)
+
+    @staticmethod
+    def make_bold(fmt_cols, this_list):
+        a = this_list.copy()
+        for col in fmt_cols:
+            a[col] = "-BOLD_START- " + a[col] + "-BOLD_END-"
+        return a
+
+    @staticmethod
+    def add_decorator(fmt_cols, this_list, decorator="$^{*}$"):
+        a = this_list.copy()
+        for col in fmt_cols:
+            a[col] = decorator+a[col]
+        return a
+
+    def _columns(self, column_string):
+        try:
+            return [int(a[1:])-1 for a in column_string.split(',')]
+        except AttributeError:
+            return []
+
+    def format_authors(self, this_row):
+        author_list = self.make_author_list(this_row)
+        if self.bold_author:
+            fmt_cols = self._columns(this_row['PI Author'])
+            author_list = self.make_bold(fmt_cols, author_list)
+        if self.decorate_groups:
+            for column, decorator in decorate_dict.items():
+                if this_row[column]:
+                    if ','  in this_row[column]:
+                        fmt_cols = self._columns(this_row[column].split(',')) 
+                    else: 
+                        fmt_cols = self._columns(this_row[column])
+                    author_list = self.add_decorator(
+                        fmt_cols, author_list, decorator=decorator)
+        this_row['authors'] = ', '.join(author_list)
+        return this_row
+
+    def make_citation(self, this_row):
+        try:
+            this_row = self.format_authors(this_row)
+        except Exception as e:
+            print("Error formatting authors:")
+            print(this_row)
+            print(e)
+
+        format_dict = {
+            'year': tex_escape(to_int(this_row['YEAR'])),
+            'title': tex_escape(this_row['TITLE'].strip()),
+            'authors': tex_escape(this_row['authors']),
+            # 'doi': self.doi(this_row['DOI']),
+            'doi': tex_escape(self.doi(this_row['DOI'])),
+            'publisher': tex_escape(this_row['PUBLISHER']),
+        }
+
+        citation = "\item "
+
+        # Check for valid VOL and PAGES (not NaN, not empty)
+        has_vol = this_row['VOL'] and pd.notna(this_row['VOL']) and str(this_row['VOL']).strip()
+        has_pages = this_row['PAGES'] and pd.notna(this_row['PAGES']) and str(this_row['PAGES']).strip()
+
+        if has_vol and has_pages:
+            format_dict['volume'] = tex_escape(to_int(this_row['VOL']))
+            format_dict['pages'] = colonify(tex_escape(this_row['PAGES']))
+            format_string = "{authors} ({year}) {title}. \\emph{{{publisher}}}, {volume}{pages}. {doi}"
+        else:
+            format_string = "{authors} ({year}) {title}. \\emph{{{publisher}}}. {doi}"
+
+        citation += format_string.format(**format_dict)
+        return citation
+
+    def make_article(self, this_row):
+        this_row = self.format_authors(this_row)
+        
+        format_dict = {
+            'code': tex_escape(to_int(this_row['NUM'])),
+            'year': tex_escape(to_int(this_row['YEAR'])),
+            'title': tex_escape(this_row['TITLE'].strip()),
+            'authors': tex_escape(this_row['authors']),
+            'doi': self.doi(this_row['DOI']),
+            'href': self.href(this_row['Link']),
+            'publisher': tex_escape(this_row['PUBLISHER']),
+            'category': tex_escape(self.category_lookup(this_row['Kind'])),
+        }
+
+        # Check for valid VOL and PAGES (not NaN, not empty)
+        has_vol = this_row['VOL'] and pd.notna(this_row['VOL']) and str(this_row['VOL']).strip()
+        has_pages = this_row['PAGES'] and pd.notna(this_row['PAGES']) and str(this_row['PAGES']).strip()
+
+        if has_pages and has_vol:
+            format_string = "{code} & {year} & {{\\bf {title}}}, {authors} {href} & \\emph{{ {publisher} }} {volume}{pages}. {doi}  & {category}"
+            format_dict['volume'] = tex_escape(to_int(this_row['VOL']))
+            format_dict['pages'] = colonify(tex_escape(this_row['PAGES']))
+        else:
+            format_string = "{code} & {year} & {{\\bf {title}}}, {authors} {href} & \\emph{{ {publisher} }}. {doi}  & {category}"
+
+        row = format_string.format(**format_dict)
+        row += "\\\\"
+        return row
+
+
+    def get_editors(self, editors):
+        if editors:
+            return editors + " (eds.)."
+        else:
+            return ""
+
+    def make_chapter(self, this_row):
+        this_row = self.format_authors(this_row)
+        row = ""
+        row += "{code} & {year} & {{\\bf {title}}}, {authors} & {editors} \\emph{{ {book} }}. {publisher} & {category}".format(  # NOQA
+            code=tex_escape(to_int(this_row['NUM'])),
+            year=tex_escape(to_int(this_row['YEAR'])),
+            title=tex_escape(this_row['TITLE'].strip()),
+            authors=tex_escape(this_row['authors']),
+            editors=tex_escape(self.get_editors(this_row['editors'])),
+            book=tex_escape(this_row['Book Title']),
+            publisher=tex_escape(this_row['PUBLISHER']),
+            category=tex_escape(self.category_lookup(this_row['Kind']))
+        )
+        row += "\\\\"
+        return row
+
+# %% ../nbs/04_Publications.ipynb 14
 @patch
 def clean_df(self:Publications,
              sort_by:str='Year', # variable to sort by
              ascending:bool=True # ascending?
             )->pd.DataFrame:  # cleaned dataframe
     """
-    Clean the Service table.
+    Clean the Publication table.
     
     """
     df = Table.table_clean_df(self)
@@ -109,12 +322,12 @@ def clean_df(self:Publications,
     df.loc[df['PAGES'] == 'nan', 'PAGES'] = np.nan
 
     # Step 5: Cast Volume as a string and remove nan
-    df.loc[df['VOL'] == 'nan', 'VOL'] = np.nan
+    # df.loc[df['VOL'] == 'nan', 'VOL'] = np.nan
 
     #df = df.sort_values(by=[sort_by], ascending=[ascending])
     return df
 
-# %% ../nbs/04_Publications.ipynb 18
+# %% ../nbs/04_Publications.ipynb 20
 publication_cv_template = r'''% UC CV Publication Table
 % Created on \VAR{created}
 
@@ -123,9 +336,14 @@ publication_cv_template = r'''% UC CV Publication Table
     \BLOCK{ do years.append(publication.YEAR) }
 \BLOCK{ endfor }
 
-\BLOCK{ set max_year = years[-1]}
+\BLOCK{ if years }
+    \BLOCK{ set max_year = years[-1] }
+\BLOCK{ else }
+    \BLOCK{ set max_year = None }
+\BLOCK{ endif }
 
-\mbox{\ \ \ \underline{\textbf{\VAR{max_year } }}}
+
+\mbox{\ \ \ \underline{\textbf{\VAR{max_year|int} }}}
 
 \begin{etaremune}
 
@@ -139,7 +357,7 @@ publication_cv_template = r'''% UC CV Publication Table
 \BLOCK{ if (year != max_year) }
 
 \vspace{0.1in}
-\mbox{\ \ \ \underline{\textbf{\VAR{year } }}}
+\mbox{\ \ \ \underline{\textbf{\VAR{year|int} }}}
 \vspace{0.1in}
 
 \BLOCK{for publication in items}
@@ -152,3 +370,44 @@ publication_cv_template = r'''% UC CV Publication Table
 
 \end{etaremune}
 '''
+
+# %% ../nbs/04_Publications.ipynb 23
+class InPress(Publications):
+
+    def __init__(self,
+                 category='A',
+                 table_name='Works in Press',
+                 template=publication_cv_template,
+                 **kwargs
+            ):
+        super().__init__(
+            table_name=table_name,
+            template=template, category=category,
+            **kwargs)
+        self.category = category
+
+
+class Submitted(Publications):
+
+    def __init__(self, 
+                 category='R',
+                 table_name='Works Submitted',
+                 template=publication_cv_template,
+                 **kwargs
+                 ):
+        super().__init__(
+            table_name=table_name,
+            template=template, category=category,
+            **kwargs)
+        self.category = category
+
+
+# %% ../nbs/04_Publications.ipynb 30
+import os
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
+
+# %% ../nbs/04_Publications.ipynb 31
+WEB_DIR = os.getenv("WEB_DIR")
